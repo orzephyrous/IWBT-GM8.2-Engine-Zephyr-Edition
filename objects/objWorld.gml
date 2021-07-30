@@ -8,6 +8,10 @@ applies_to=self
 
 if (instance_number(object_index) > 1)
     instance_destroy();
+
+gameclosing=0
+closingvol=1
+closingk=0
 #define Alarm_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -31,6 +35,33 @@ if (!window_get_fullscreen())
     window_set_size(global.windowWidthPrev,global.windowHeightPrev);
 }
 #define Step_0
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+///closing animation
+if (gameclosing)
+{
+    closingvol=max(0,closingvol*0.9);
+    global.volumeLevel = closingvol*global.volumeLevel;
+    sound_global_volume(global.volumeLevel);
+    if (closingvol<=0.025) game_end();
+
+    closingk=!closingk
+    if (closingk)
+    {
+        window_set_region_scale(1,1);
+        window_set_region_size(view_wview[0],ceil(view_hview[0]*sqr(closingvol)),1);
+        window_center();
+    }
+
+    draw_clear(merge_color(0,$ffffff,1-closingvol));
+    window_set_color(merge_color(0,$ffffff,1-closingvol));
+    screen_refresh();
+
+    exit;
+}
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603
@@ -263,9 +294,9 @@ applies_to=self
 */
 ///function keys
 
-if (keyboard_check_pressed(vk_escape))
+if (keyboard_check_pressed(vk_escape) || (keyboard_check_pressed(vk_alt) && keyboard_check_pressed(vk_f4)))
 {
-    game_end();
+    event_user(1);    //game ends
 }
 
 if (keyboard_check_pressed(vk_f2))
@@ -337,6 +368,25 @@ global.musicFading = true;
 sound_fade(global.currentMusic,0,50);                       //fade out music over 1 second
 
 alarm[0] = 50;  //pause music when it's done fading
+#define Other_11
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+if (!gameclosing)
+{
+    gameclosing = 1;
+    if (global.closingAnimation && !window_get_fullscreen())
+    {
+        window_set_showborder(0);
+        set_automatic_draw(0);
+        set_synchronization(0);
+        instance_deactivate_all(1);
+    } else {
+        game_end();
+    }
+}
 #define Draw_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
