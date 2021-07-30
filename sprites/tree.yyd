@@ -1,0 +1,79 @@
++world
+	|sprCamera
+	|sprPlayMusic
+	|sprPlayerKiller
+	|sprPlayerStart
+	|sprPause
++player
+	|sprPlayerMask
+	|sprPlayerMaskFlip
+	|sprPlayerIdle
+	|sprPlayerJump
+	|sprPlayerFall
+	|sprPlayerRunning
+	|sprPlayerSliding
+	|sprBow
+	|sprBullet
+	|sprBlood
+	|sprGameOver
++blocks
+	|sprBlockMask
+	|sprMiniBlockMask
+	|sprSlipBlockMask
+	|sprKillerBlock
+	|sprBlock
+	|sprBlock2
+	|sprSlideBlock
+	|sprSlideBlockR
+	|sprSlideBlockL
+	|sprSaveBlocker
++slopes
+	|sprSlopeBlock
+	|sprSlopeDownLeft
+	|sprSlopeDownRight
+	|sprSlopeUpLeft
+	|sprSlopeUpRight
++platforms
+	|sprPlatform
+	|sprMovingPlatform
++killers
+	|sprSpikeUp
+	|sprSpikeRight
+	|sprSpikeLeft
+	|sprSpikeDown
+	|sprMiniUp
+	|sprMiniRight
+	|sprMiniLeft
+	|sprMiniDown
+	|sprCherry
++misc
+	|sprWater0
+	|sprWater1
+	|sprWater2
+	|sprWater3
+	|sprWalljumpR
+	|sprWalljumpL
+	|sprJumpRefresher
+	|sprSign
+	|sprGravityUp
+	|sprGravityDown
++triggers
+	|sprTriggerMask
+	|sprButton
+	|sprSpikeTriggerDown
+	|sprSpikeTriggerLeft
+	|sprSpikeTriggerRight
+	|sprSpikeTriggerUp
++saves
+	|sprSaveMask
+	|sprSaveMedium
+	|sprSave
+	|sprSaveVHard
+	|sprSaveMediumFlip
+	|sprSaveFlip
+	|sprSaveVHardFlip
++warps
+	|sprWarp
++items
+	|sprSecretItem
+	|sprBossItem

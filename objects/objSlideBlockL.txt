@@ -1,0 +1,7 @@
+sprite=sprSlideBlockL
+visible=1
+solid=1
+persistent=0
+depth=100
+parent=objSlideBlock
+mask=

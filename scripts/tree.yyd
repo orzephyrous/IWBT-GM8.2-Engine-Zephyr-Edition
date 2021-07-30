@@ -1,0 +1,35 @@
++player
+	|scrPlayerJump
+	|scrPlayerVJump
+	|scrPlayerShoot
+	|scrSetPlayerMask
+	|scrKillPlayer
+	|scrFlipGrav
++world
+	|scrLoadMusic
+	|scrInitializeGlobals
+	|scrSetGlobalOptions
+	|scrSaveConfig
+	|scrLoadConfig
+	|scrSaveGame
+	|scrLoadGame
+	|scrSetRoomCaption
+	|scrDrawButtonInfo
+	|scrGetKeybind
+	|scrGetControllerBind
+	|scrToggleMusic
+	|scrRestartGame
+	|scrSetVsync
+	|scrResetWindowSize
+	|scrGetMusic
+	|scrPlayMusic
+	|scrStopMusic
+	+controls
+		|scrAnyControllerButton
+		|scrButtonCheck
+		|scrButtonCheckPressed
+		|scrButtonCheckReleased
++functions
+	|scrDrawTextOutline
+	|scrMakeShapes
+	|scrMakeCircle

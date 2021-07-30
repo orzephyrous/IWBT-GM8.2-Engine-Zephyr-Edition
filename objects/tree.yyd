@@ -1,0 +1,95 @@
++world
+	|objWorld
+	|objCamera
+	|objSmoothCamera
+	|objPlayMusic
+	|objTitleMenu
+	|objDifficultyMenu
+	|objOptionsMenu
+	|objKeyboardControlsMenu
+	|objControllerMenu
++player
+	|objPlayerStart
+	|objPlayer
+	|objBow
+	|objBullet
+	|objBloodEmitter
+	|objBlood
+	|objGameOver
++blocks
+	|objBlock
+	|objMiniBlock
+	|objSlipBlock
+	|objBlockInvis
+	|objBlockFake
+	|objSlideBlock
+	|objSlideBlockL
+	|objSlideBlockR
+	|objBossBlock
+	|objSaveBlocker
++slopes
+	|objSlope
+	|objSlopeDownLeft
+	|objSlopeDownRight
+	|objSlopeUpLeft
+	|objSlopeUpRight
++platforms
+	|objPlatform
+	|objMovingPlatform
+	|objMovingPlatformNoBounce
+	|objBlockRise
+	|objBlockFall
++killers
+	|objPlayerKiller
+	|objSpikeUp
+	|objSpikeRight
+	|objSpikeLeft
+	|objSpikeDown
+	|objMiniUp
+	|objMiniRight
+	|objMiniLeft
+	|objMiniDown
+	|objCherry
+	|objCherryBounce
+	|objCherryBounceRandom
+	|objCherryBounceLat
+	|objCherryBounceVert
+	|objKillerBlock
++triggers
+	|objFreeTrigger
+	|objTriggerButton
+	|objKillerTrigger
+	|objSpikeTriggerUp
+	|objSpikeTriggerRight
+	|objSpikeTriggerLeft
+	|objSpikeTriggerDown
+	|objCherryTrigger
++misc
+	|objWater0
+	|objWater1
+	|objWater2
+	|objWater3
+	|objWalljumpR
+	|objWalljumpL
+	|objJumpRefresher
+	|objSign
+	|objGravityUp
+	|objGravityDown
++saves
+	|objSaveMedium
+	|objSave
+	|objSaveVHard
+	|objSaveMediumFlip
+	|objSaveFlip
+	|objSaveVHardFlip
++warps
+	|objWarpStart
+	|objRoomChanger
+	|objWarp
+	|objOutsideRoomChanger
++items
+	|objSecretItem
+	|objSecretIndicator
+	|objBossItem
+	|objBossIndicator
+	|objGameClear

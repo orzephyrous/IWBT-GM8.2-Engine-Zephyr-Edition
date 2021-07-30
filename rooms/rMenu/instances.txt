@@ -1,0 +1,1 @@
+objDifficultyMenu,96,160,,0

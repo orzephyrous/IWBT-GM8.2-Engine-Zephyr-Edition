@@ -1,0 +1,7 @@
+objBlock,0,0,3F6B08E0,0
+objBlock,0,32,F3CCAAE5,0
+objBlock,768,32,F3CCAAE5,0
+objBlock,0,576,3F6B08E0,0
+objSave,64,544,,0
+objSaveBlocker,96,544,,0
+objPlayerStart,32,544,,0

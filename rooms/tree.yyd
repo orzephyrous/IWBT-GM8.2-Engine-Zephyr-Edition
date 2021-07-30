@@ -1,0 +1,8 @@
++init
+	|rInit
+	|rTitle
+	|rMenu
+	|rOptions
+	|rDifficultySelect
+|rSampleRoom
+|rTemplate
