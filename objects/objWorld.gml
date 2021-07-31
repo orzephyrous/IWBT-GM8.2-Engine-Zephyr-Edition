@@ -326,6 +326,25 @@ if (keyboard_check(vk_control) && keyboard_check_pressed(ord("M")) && !global.ga
 
     scrSaveConfig();    //save mute setting
 }
+
+if keyboard_check_pressed(vk_f9)
+{
+    //screen capture
+    screen_num = 1
+    while true
+    {
+        filename = "screenshot_"+string(screen_num)+".png";
+        if !file_exists(filename)
+        {
+            screen_save(filename);
+            break;
+        }
+        else
+        {
+            screen_num += 1;
+        }
+    }
+}
 #define Other_2
 /*"/*'/**//* YYD ACTION
 lib_id=1
