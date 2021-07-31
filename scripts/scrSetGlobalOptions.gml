@@ -20,6 +20,7 @@ global.menuSound = "sndJump";     //sets what sound to use for navigating the ma
 global.deathMusicMode = 0;      //sets whether or not to play death music when the player dies (0 = no death music, 1 = instantly pause current music, 2 = fade out current music)
 global.adAlign = false;             //sets whether or not to enable A/D align
 global.timeWhenDead = true;        //sets whether or not to count the in-game timer when the player is dead
+global.timeWhenClear = false;    //sets whether or not to count the in-game timer when game is cleared
 global.edgeDeath = true;           //sets whether to kill the player when he leaves the boundaries of the room
 global.pauseDelayLength = 40;   //sets the delay in frames in which the player can pause/unpause the game (can be set to 0 to disable pause delay)
 global.delayBow = false;            //sets whether to delay the player bow's movement by a frame or not (most engines have the bow lagging behind the player by a frame, so set this to "true" to make the bow look like it does in other engines)

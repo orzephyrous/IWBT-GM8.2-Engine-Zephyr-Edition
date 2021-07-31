@@ -126,7 +126,7 @@ if (global.gameStarted)
         {
             if (!global.gamePaused)  //game currently not paused, pause the game
             {
-                if (!global.noPause)
+                if (instance_exists(objPlayer) && !global.noPause)
                 {
                     global.gamePaused = true;  //set the game to paused
                     global.pauseDelay = global.pauseDelayLength; //set pause delay
@@ -190,7 +190,7 @@ if (global.gameStarted)
             scrLoadGame(false); //load the game
         }
 
-        if (global.timeWhenDead || instance_exists(objPlayer))  //increment timer
+        if ((global.timeWhenDead || instance_exists(objPlayer)) && (global.timeWhenClear || !global.gameClear))  //increment timer
         {
             global.timeMicro += 1;
             global.time += global.timeMicro div 50;
