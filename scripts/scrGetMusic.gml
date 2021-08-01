@@ -7,9 +7,11 @@ switch (room)                       //determines which song to play
     case rTitle:                    //add rooms here, if you have several rooms that play the same song they can be put together
     case rMenu:
     case rOptions:
-    case rSampleRoom:
         roomSong = "musCarpeDiem";
         break;                      //make sure to always put a break after setting the song
+    case rSampleRoom:
+        roomSong = "musZephyr";
+        break;
     default:                        //default option in case the room does not have a song set
         roomSong = "";
         break;
