@@ -21,6 +21,8 @@ if (global.gameStarted)
     roomCaption += string(t div 10);
     t = t mod 10;
     roomCaption += string(t);
+
+    if global.gameClear roomCaption += " - Clear!"
 }
 
 if (room_caption != global.roomCaptionLast)  //only update the caption when it changes
