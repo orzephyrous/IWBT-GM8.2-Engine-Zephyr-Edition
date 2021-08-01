@@ -179,7 +179,7 @@ if (onVineL || onVineR)
                 hspeed = 15;
 
             vspeed = -9 * global.grav;
-            sound_play(sndWallJump);
+            sound_play("sndWallJump");
             sprite_index = sprPlayerJump;
         }
         else    //moving off vine
