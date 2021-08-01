@@ -41,35 +41,6 @@ global.menuAcceptButton[0] = vk_shift;
 global.menuBackButton[0] = ord("Z");
 global.menuOptionsButton[0] = vk_enter;
 
-/*
-if (global.controllerEnabled)
-{
-    //controller options
-    global.controllerIndex = ini_read_real("Controller", "Index", -1); //-1 means no controller
-    global.leftButton[1] = ini_read_real("Controller","Left",gp_padl);
-    global.rightButton[1] = ini_read_real("Controller","Right",gp_padr);
-    global.upButton[1] = ini_read_real("Controller","Up",gp_padu);
-    global.downButton[1] = ini_read_real("Controller","Down",gp_padd);
-    global.jumpButton[1] = ini_read_real("Controller","Jump",gp_face1);
-    global.shootButton[1] = ini_read_real("Controller","Shoot",gp_face3);
-    global.restartButton[1] = ini_read_real("Controller","Restart",gp_face4);
-    global.skipButton[1] = ini_read_real("Controller","Skip",gp_face2);
-    global.suicideButton[1] = ini_read_real("Controller","Suicide",gp_select);
-    global.pauseButton[1] = ini_read_real("Controller","Pause",gp_start);
-    global.alignLeftButton[1] = ini_read_real("Controller","Align_left",gp_shoulderl);
-    global.alignRightButton[1] = ini_read_real("Controller","Align_right",gp_shoulderr);
-}
-
-//menu buttons (not rebindable)
-global.menuLeftButton[1] = gp_padl;
-global.menuRightButton[1] = gp_padr;
-global.menuUpButton[1] = gp_padu;
-global.menuDownButton[1] = gp_padd;
-global.menuAcceptButton[1] = gp_face1;
-global.menuBackButton[1] = gp_face2;
-global.menuOptionsButton[1] = gp_select;
-*/
-
 ini_close();
 
 scrSaveConfig();    //save config in case something changed

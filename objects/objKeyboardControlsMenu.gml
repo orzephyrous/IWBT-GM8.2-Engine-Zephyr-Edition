@@ -126,10 +126,6 @@ else
 
         settingKey = false;
     }
-    else if (scrAnyControllerButton() != -1)    //check if a controller button was pressed, exit prompt
-    {
-        settingKey = false;
-    }
 }
 
 //get current controls

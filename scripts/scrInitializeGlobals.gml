@@ -68,7 +68,4 @@ global.windowHeightPrev = 0;
 
 //display_set_gui_size(surface_get_width(application_surface),surface_get_height(application_surface));  //set the correct gui size for the Draw GUI event
 
-global.controllerMode = false;  //keeps track of whether to use keyboard or controller
-global.controllerDelay = -1;    //handles delay between switching between keyboard/controller so that the player can't use both at the same time
-
 randomize();    //make sure the game starts with a random seed for RNG

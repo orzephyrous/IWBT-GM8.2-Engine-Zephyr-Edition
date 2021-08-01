@@ -7,17 +7,11 @@ applies_to=self
 select = global.menuSelectPrev[1];
 
 xSelector = 124;
-ySelector = 132;
+ySelector = 164;
 xSeperation = 550;
 ySeperation = 48;
 
-optionsNum = 7; //sets number of separate options available
-
-if (!global.controllerEnabled)  //remove controller settings menu if controllers are disabled
-{
-    optionsNum -= 1;
-    ySelector += 32;
-}
+optionsNum = 6; //sets number of separate options available
 
 strSelect[0] = "Music";
 strSelect[1] = "Volume Level";
@@ -25,7 +19,6 @@ strSelect[2] = "Screen Mode";
 strSelect[3] = "Smoothing Mode";
 strSelect[4] = "Vsync";
 strSelect[5] = "Set Keyboard Controls";
-//strSelect[6] = "Controller Options";
 
 playerIndex = 0;
 #define Step_0
@@ -85,15 +78,8 @@ else if (scrButtonCheckPressed(global.menuAcceptButton))
     {
         scrSaveConfig();    //save changes
         global.menuSelectPrev[1] = select;
+        io_clear();    //need this line however
         instance_create(x,y,objKeyboardControlsMenu);
-        instance_destroy();
-        exit;
-    }
-    else if (select == 6)   //go to the controller options menu
-    {
-        scrSaveConfig();    //save changes
-        global.menuSelectPrev[1] = select;
-        instance_create(x,y,objControllerMenu);
         instance_destroy();
         exit;
     }

@@ -73,50 +73,6 @@ applies_to=self
 //set linear interpolation depending on what the current smoothing setting is
 texture_set_interpolation(global.smoothingMode);
 
-//controller checks
-/*
-if (global.controllerEnabled && global.controllerIndex != -1)
-{
-    if (!global.controllerMode)  //check if we should switch to controller mode
-    {
-        if (keyboard_check_pressed(vk_anykey))
-        {
-            global.controllerDelay = -1;
-        }
-        else if (scrAnyControllerButton() != -1)
-        {
-            if (global.controllerDelay == -1)
-                global.controllerDelay = global.controllerDelayLength;
-        }
-    }
-    else    //check if we should switch to keyboard mode
-    {
-        if (keyboard_check_pressed(vk_anykey))
-        {
-            if (global.controllerDelay == -1)
-                global.controllerDelay = global.controllerDelayLength;
-        }
-        else if (scrAnyControllerButton() != -1)
-        {
-            global.controllerDelay = -1;
-        }
-    }
-
-    if (global.controllerDelay != -1)   //check delay for switching between keyboard/controller
-    {
-        if (global.controllerDelay == 0)    //delay over, toggle controller mode
-        {
-            global.controllerMode = !global.controllerMode;
-            global.controllerDelay = -1;
-        }
-        else
-        {
-            global.controllerDelay -= 1;
-        }
-    }
-}
-*/
-
 if (global.gameStarted)
 {
     //handle pausing

@@ -16,7 +16,6 @@
 	|scrSetRoomCaption
 	|scrDrawButtonInfo
 	|scrGetKeybind
-	|scrGetControllerBind
 	|scrToggleMusic
 	|scrRestartGame
 	|scrSetVsync
@@ -25,7 +24,6 @@
 	|scrPlayMusic
 	|scrStopMusic
 	+controls
-		|scrAnyControllerButton
 		|scrButtonCheck
 		|scrButtonCheckPressed
 		|scrButtonCheckReleased

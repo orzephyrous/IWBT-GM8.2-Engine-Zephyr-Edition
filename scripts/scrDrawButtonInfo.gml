@@ -9,19 +9,10 @@ var backButton;
 var acceptButton;
 var optionsButton;
 
-//check whether to display keyboard or controller buttons
-if (!global.controllerMode)
-{
-    backButton = scrGetKeybind(global.menuBackButton[0]);
-    acceptButton = scrGetKeybind(global.menuAcceptButton[0]);
-    optionsButton = scrGetKeybind(global.menuOptionsButton[0]);
-}
-else
-{
-    backButton = scrGetControllerBind(global.menuBackButton[1]);
-    acceptButton = scrGetControllerBind(global.menuAcceptButton[1]);
-    optionsButton = scrGetControllerBind(global.menuOptionsButton[1]);
-}
+//check whether to display keyboard
+backButton = scrGetKeybind(global.menuBackButton[0]);
+acceptButton = scrGetKeybind(global.menuAcceptButton[0]);
+optionsButton = scrGetKeybind(global.menuOptionsButton[0]);
 
 //button info
 draw_set_font(fDefault12);

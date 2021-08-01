@@ -7,7 +7,6 @@
 	|objDifficultyMenu
 	|objOptionsMenu
 	|objKeyboardControlsMenu
-	|objControllerMenu
 +player
 	|objPlayerStart
 	|objPlayer

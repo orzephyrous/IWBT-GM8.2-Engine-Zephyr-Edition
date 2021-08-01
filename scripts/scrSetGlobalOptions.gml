@@ -33,9 +33,6 @@ global.secretItemTotal = 8;     //sets how many secret items for the game to sav
 global.bossItemTotal = 8;       //sets how many boss items for the game to save/load
 global.autosaveSecretItems = false; //sets whether to save secret items immediately when you grab them or if you have to hit a save
 
-global.controllerEnabled = false;    //sets whether controllers are supported
-global.controllerDelayLength = 5;   //sets the delay in frames in which the player can switch between keyboard/controller (can be set to 0 to disable delay)
-
 global.extraSaveProtection = false; //sets whether to use the ds_map_secure functions for saving/loading (improves save security and prevents transferring between PCs)
 
 global.closingAnimation = true;    //sets whether to have a animation when game ends
