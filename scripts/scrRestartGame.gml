@@ -1,7 +1,7 @@
 ///restarts the game
 
-if (surface_exists(global.pauseSurf))
-    surface_free(global.pauseSurf);  //free pause surface in case the game is currently paused
+if (background_exists(global.pauseBg))
+    background_delete(global.pauseBg);  //delete pause background in case the game is currently paused
 
 if instance_exists(objPlayer) instance_destroy_id(objPlayer);
 scrInitializeGlobals();

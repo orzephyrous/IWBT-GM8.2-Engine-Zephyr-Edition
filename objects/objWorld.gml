@@ -89,17 +89,7 @@ if (global.gameStarted)
 
                     instance_deactivate_all(true);  //deactivate everything
 
-                    //global.pauseSurf = surface_create(view_wview[0],view_hview[0]);    //create new surface
-                    //surface_copy(global.pauseSurf,0,0,application_surface);             //copy current screen to it
-
                     global.pauseBg = background_create_from_screen(0,0,view_wview[0],view_hview[0],0,0); //create screenshot background
-                    //global.debugOverlay = false;
-                    //screen_refresh();
-                    //surface_set_target(global.pauseSurf);
-
-                    //draw_background(global.pauseBg,0,0); //draw pause background on surface
-
-                    //surface_reset_target();
                 }
             }
             else    //game currently paused, unpause the game
@@ -109,8 +99,8 @@ if (global.gameStarted)
 
                 instance_activate_all();    //reactivate objects
 
-                if (surface_exists(global.pauseSurf))
-                    surface_free(global.pauseSurf);         //free the surface
+                if (background_exists(global.pauseBg))
+                    background_delete(global.pauseBg);         //delete the pause background
 
                 scrSaveConfig();    //save config in case volume levels were changed
 

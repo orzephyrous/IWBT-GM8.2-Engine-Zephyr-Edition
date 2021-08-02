@@ -43,7 +43,7 @@ global.noDeath = false;         //keeps track of whether to give the player god 
 global.infJump = false;         //keeps track of whether to give the player infinite jump
 
 global.gamePaused = false;      //keeps track of whether the game is paused or not
-global.pauseSurf = -1;       //stores the screen surface when the game is paused
+global.pauseBg = -1;       //stores the screen surface when the game is paused
 global.pauseDelay = 0;      //sets pause delay so that the player can't quickly pause buffer
 
 global.currentMusicID = "";  //keeps track of what song the current music is
