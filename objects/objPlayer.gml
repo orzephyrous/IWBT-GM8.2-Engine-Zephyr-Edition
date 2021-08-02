@@ -518,12 +518,13 @@ if (global.alignShow && scrButtonCheck(global.alignShowButton))
     ya = y-floor(y);
     draw_set_font(fDefault12);
     draw_set_halign(fa_center);
-    if (y > 64)
+    draw_set_valign(fa_bottom);
+    if (y > 32)
     {
-        scrDrawTextOutline(x, y-48, string(ya), c_black, c_white);
+        scrDrawTextOutline(x, y-16, string(ya), c_black, c_white);
     }
     else
     {
-        scrDrawTextOutline(x, y+16, string(ya), c_black, c_white);
+        scrDrawTextOutline(x, y+36, string(ya), c_black, c_white);
     }
 }

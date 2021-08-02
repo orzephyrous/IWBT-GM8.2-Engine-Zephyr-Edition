@@ -267,6 +267,7 @@ for(i = 0; i < 3; i += 1)
 {
     draw_set_color(c_black)
     draw_set_halign(fa_left)
+    draw_set_valign(fa_top)
     draw_set_font(fDefault30);
 
     draw_text(x+i*xSeperation+2,y,str[i]);
