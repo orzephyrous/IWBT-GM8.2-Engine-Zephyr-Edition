@@ -31,6 +31,7 @@ objSlopeUpRight
 objPlatform
 objMovingPlatform
 objMovingPlatformNoBounce
+objSidewayPlatform
 objBlockRise
 objBlockFall
 objPlayerKiller

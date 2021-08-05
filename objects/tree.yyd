@@ -36,6 +36,7 @@
 	|objPlatform
 	|objMovingPlatform
 	|objMovingPlatformNoBounce
+	|objSidewayPlatform
 	|objBlockRise
 	|objBlockFall
 +killers

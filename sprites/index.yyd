@@ -29,6 +29,7 @@ sprSlopeUpLeft
 sprSlopeUpRight
 sprPlatform
 sprMovingPlatform
+sprSidewayPlatform
 sprSpikeUp
 sprSpikeRight
 sprSpikeLeft
