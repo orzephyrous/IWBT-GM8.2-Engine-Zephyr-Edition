@@ -99,13 +99,13 @@ ds_map_add(saveMap,"saveGameClear",global.saveGameClear);
 //    file_text_close(f);
 //}
 var b;
-b = buffer_create()
+b = buffer_create();
 
-buffer_write_hex(b,ds_map_write(saveMap))
-if (global.password!="") buffer_rc4(b,global.password)
-buffer_save(b,"save"+string(global.savenum))
+buffer_write_hex(b,ds_map_write(saveMap));
+if (global.password != "") buffer_rc4(b,global.password);
+buffer_save(b,"save"+string(global.savenum));
 
-buffer_destroy(b)
+buffer_destroy(b);
 
 //destroy the map
 ds_map_destroy(saveMap);

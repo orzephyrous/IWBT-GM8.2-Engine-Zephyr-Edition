@@ -11,25 +11,12 @@ if (loadFile)
     //load the save map
     var saveMap;
 
-/*   if (global.extraSaveProtection) //use ds_map_secure function
-    {
-        saveMap = ds_map_secure_load("Data\save"+string(global.savenum));
-    }
-    else    //use text file
-    {
-        var f = file_text_open_read("Data\save"+string(global.savenum));
-
-        saveMap = json_decode(base64_decode(file_text_read_string(f)));
-
-        file_text_close(f);
-    }
-*/
     saveMap = ds_map_create();
-    b=buffer_create()
-    buffer_load(b,"save"+string(global.savenum))
-    if (global.password!="") buffer_rc4(b,global.password)
-    ds_map_read(saveMap,buffer_read_hex(b,buffer_get_size(b)))
-    buffer_destroy(b)
+    b = buffer_create();
+    buffer_load(b,"save"+string(global.savenum));
+    if (global.password!="") buffer_rc4(b,global.password);
+    ds_map_read(saveMap,buffer_read_hex(b,buffer_get_size(b)));
+    buffer_destroy(b);
 
     var saveValid;
     saveValid = true;   //keeps track of whether or not the save being loaded is valid
@@ -69,22 +56,6 @@ if (loadFile)
         }
 
         global.saveGameClear = ds_map_find_value(saveMap,"saveGameClear");
-
-        //load md5 string from the save map
-/*
-        var mapMd5 = ds_map_find_value(saveMap,"mapMd5");
-
-        //check if md5 is not a string in case the save was messed with or got corrupted
-        if (!is_string(mapMd5))
-            mapMd5 = "";   //make it a string for the md5 comparison
-
-        //generate md5 string to compare with
-        ds_map_delete(saveMap,"mapMd5");
-        var genMd5 = md5_string_unicode(json_encode(saveMap)+global.md5StrAdd);
-
-        if (mapMd5 != genMd5)   //check if md5 hash is invalid
-            saveValid = false;
-*/
 
         //destroy the map
         ds_map_destroy(saveMap);

@@ -30,29 +30,14 @@ for (i = 0; i < 3; i+=1)
         exists[i] = true;
 
         //load the save map
-        /*
-        if (global.extraSaveProtection) //use ds_map_secure function
-        {
-            saveMap = ds_map_secure_load("Data\save"+string(i+1));
-        }
-        else    //use text file
-        {
-            var f;
-            f = file_text_open_read("Data\save"+string(i+1));
-
-            saveMap = json_decode(base64_decode(file_text_read_string(f)));
-
-            file_text_close(f);
-        }
-        */
 
         var saveMap;
         saveMap = ds_map_create();
-        b=buffer_create()
-        buffer_load(b,"save"+string(global.savenum))
-        if (global.password!="") buffer_rc4(b,global.password)
-        ds_map_read(saveMap,buffer_read_hex(b,buffer_get_size(b)))
-        buffer_destroy(b)
+        b = buffer_create();
+        buffer_load(b,"save"+string(i+1));
+        if (global.password != "") buffer_rc4(b,global.password);
+        ds_map_read(saveMap,buffer_read_hex(b,buffer_get_size(b)));
+        buffer_destroy(b);
 
         if (saveMap != -1)  //check if the save map loaded correctly
         {
