@@ -12,6 +12,8 @@ Controller-related stuffs totally removed.
 
 Don't want to add gimmicks. Maybe will add gimmicks in another branch.
 
+MusOnDeath (game over music) and related stuffs removed (plenty seconds of game over music is just not necessary).
+
 ## Acknowledgement
 
 Thanks Ebb174 for testing this engine.
