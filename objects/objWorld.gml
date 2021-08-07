@@ -117,12 +117,8 @@ if (global.gameStarted)
     {
         if (scrButtonCheckPressed(global.restartButton))
         {
-            //stop death sound/music
+            //stop death sound
             if global.deathSound!="" sound_stop(global.deathSound);
-            if global.gameOverMusic!="" sound_stop(global.gameOverMusic);
-
-            //resume room music
-            //if global.currentMusic!="" sound_resume(global.currentMusic);
 
             ///return to old gain if music is being faded out
             if (global.musicFading)
