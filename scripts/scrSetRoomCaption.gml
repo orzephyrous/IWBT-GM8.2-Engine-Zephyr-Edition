@@ -5,7 +5,27 @@ roomCaption = global.roomCaptionDef;
 
 if (global.gameStarted)
 {
-    roomCaption += " -"
+    roomCaption += " -";
+    roomCaption += " Save " + string(global.savenum);
+    roomCaption += " -";
+    if (global.difficulty==0)
+    {
+        roomCaption += " Medium";
+    }
+    else if(global.difficulty==1)
+    {
+        roomCaption += " Hard";
+    }
+    else if(global.difficulty==2)
+    {
+        roomCaption += " Very Hard";
+    }
+    else if(global.difficulty==3)
+    {
+        roomCaption += " Impossible";
+    }
+
+    roomCaption += " -";
     roomCaption += " Deaths: " + string(global.death);
     roomCaption += " Time: ";
 
@@ -22,7 +42,7 @@ if (global.gameStarted)
     t = t mod 10;
     roomCaption += string(t);
 
-    if global.gameClear roomCaption += " - Clear!"
+    if global.gameClear roomCaption += " - Clear!";
 }
 
 if (room_caption != global.roomCaptionLast)  //only update the caption when it changes
