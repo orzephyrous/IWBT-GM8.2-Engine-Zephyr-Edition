@@ -196,6 +196,7 @@ else
                     }
                     else
                     {
+                        sound_play(global.menuSound);
                         warnText = true;
                         warnSelect = true;
                     }
@@ -206,7 +207,7 @@ else
         {
             if (scrButtonCheckPressed(global.menuLeftButton))
             {
-                sound_play(global.menuSound,);
+                sound_play(global.menuSound);
                 warnSelect = !warnSelect;
             }
             else if (scrButtonCheckPressed(global.menuRightButton))
