@@ -236,7 +236,7 @@ applies_to=self
 */
 ///function keys
 
-if (keyboard_check_pressed(vk_escape) || (keyboard_check_pressed(vk_alt) && keyboard_check_pressed(vk_f4)))
+if (keyboard_check_pressed(vk_escape) || (keyboard_check(vk_alt) && keyboard_check_pressed(vk_f4)))
 {
     event_user(1);    //game ends
 }
@@ -247,7 +247,7 @@ if (keyboard_check_pressed(vk_f2))
     exit;
 }
 
-if (keyboard_check_pressed(vk_f4) && !global.gamePaused)    //toggle fullscreen mode
+if (keyboard_check_pressed(vk_f4) && !global.gamePaused && !keyboard_check(vk_alt))    //toggle fullscreen mode
 {
     global.fullscreenMode = !global.fullscreenMode;
 
