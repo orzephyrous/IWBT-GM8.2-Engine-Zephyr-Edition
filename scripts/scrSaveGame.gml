@@ -80,24 +80,6 @@ for (i = 0; i < global.bossItemTotal; i+=1)
 
 ds_map_add(saveMap,"saveGameClear",global.saveGameClear);
 
-//add md5 hash to verify saves and make them harder to hack
-//ds_map_add(saveMap,"mapMd5",md5string(json_encode(saveMap)+global.md5StrAdd));
-
-//save the map to a file
-//if (global.extraSaveProtection) //use ds_map_secure function
-//{
-//    ds_map_secure_save(saveMap,"Data\save"+string(global.savenum));
-//}
-//else    //use text file
-//{
-    //open the save file
-//    var f = file_text_open_write("Data\save"+string(global.savenum));
-
-    //write map to the save file with base64 encoding
-//    file_text_write_string(f,base64_encode(json_encode(saveMap)));
-
-//    file_text_close(f);
-//}
 var b;
 b = buffer_create();
 
