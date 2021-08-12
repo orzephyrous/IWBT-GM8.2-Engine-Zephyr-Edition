@@ -5,4 +5,4 @@
 var buttonIn;
 buttonIn = argument0;
 
-return (keyboard_check(buttonIn[0]));
+return (keyboard_check_direct(buttonIn[0]));
