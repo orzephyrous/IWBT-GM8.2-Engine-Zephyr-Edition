@@ -18,4 +18,10 @@ switch (room)                       //determines which song to play
 }
 
 if (roomSong != "")
+{
     scrPlayMusic(roomSong,true); //play the song for the current room
+}
+else
+{
+    scrStopMusic();
+}
