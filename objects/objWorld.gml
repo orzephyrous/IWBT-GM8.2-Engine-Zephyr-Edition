@@ -9,9 +9,10 @@ applies_to=self
 if (instance_number(object_index) > 1)
     instance_destroy();
 
-gameclosing=0
-closingvol=1
-closingk=0
+// values for closing animation
+gameclosing = 0;
+closingvol = 1;
+closingk = 0;
 #define Alarm_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
