@@ -68,15 +68,15 @@ New modifications:
 
 ```
 switch{
-	...
-	case roomStage1:
-	case roomStage2:
-		roomSong = "bgm1";
-		break;
-	...
-	default:
-		roomSong = "";
-		break;
+    ...
+    case roomStage1:
+    case roomStage2:
+        roomSong = "bgm1";
+        break;
+    ...
+    default:
+        roomSong = "";
+        break;
 }
 ```
 
