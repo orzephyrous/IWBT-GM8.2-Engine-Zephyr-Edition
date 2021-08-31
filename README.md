@@ -53,7 +53,7 @@ New modifications:
 - Option to stop the timer when the game is cleared (set global.timeWhenClear in scrSetGlobalOptions)
 - Option to have a different bow color when player doesn't have second jump (set global.bowAdvanced in scrSetGlobalOptions)
 - Screen capture with F9 
-- All audio related functions in GM:S are change to gm82snd functions
+- All audio related functions in GM:S are changed to gm82snd functions
 - Sound effect for saves(sndSave, default sound effect from my Weirdle series)
 - Save-block animates as in jtool
 - Removes death music(musOnDeath) and changed death sound(sndDeath, also from Weirdle series)
