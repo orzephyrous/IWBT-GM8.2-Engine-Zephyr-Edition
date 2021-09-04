@@ -88,7 +88,7 @@ switch{
 - Make sure to set the "global.debugMode" variable in the "scrSetGlobalOptions" script to "false" before releasing your game, otherwise debug keys will still work
 - Make sure to set the "global.password" string in the "scrSetGlobalOptions" script to something unique to your game to make saves harder to modify
 - Make sure to release your game with the "data" folder (where the audio files are stored)
-- Games compiled by GM8.2 cannot be played online by iwpo
+- Making an online version is much more complicated than just draging the executable to iwpo.exe, see [po.md](po.md) for instructions.
 
 ## Acknowledgement
 
