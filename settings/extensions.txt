@@ -1,4 +1,4 @@
-Game Maker 8.2 Joystick S
 Game Maker 8.2 Core S
+Game Maker 8.2 Joystick S
 Game Maker 8.2 Networking S
 Game Maker 8.2 Sound S

@@ -46,7 +46,7 @@ if (gameclosing)
 {
     closingvol=max(0,closingvol*0.9);
     global.volumeLevel = closingvol*global.volumeLevel;
-    sound_global_volume(global.volumeLevel);
+    sound_global_volume(global.volumeLevel/100);
     if (closingvol<=0.025) game_end();
 
     closingk=!closingk
