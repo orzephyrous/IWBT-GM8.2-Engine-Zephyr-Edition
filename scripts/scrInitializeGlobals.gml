@@ -65,6 +65,6 @@ global.windowYPrev = 0;
 global.windowWidthPrev = 0;
 global.windowHeightPrev = 0;
 
-//display_set_gui_size(surface_get_width(application_surface),surface_get_height(application_surface));  //set the correct gui size for the Draw GUI event
+global.inFocus = 1;    //keeps track of whether the game window is in focus
 
 randomize();    //make sure the game starts with a random seed for RNG

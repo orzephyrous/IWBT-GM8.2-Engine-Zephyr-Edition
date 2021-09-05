@@ -162,6 +162,9 @@ if (global.gameStarted)
 // something that fixes the 3px auto-move when pressing "R"
 scrButtonCheck(global.leftButton);
 scrButtonCheck(global.rightButton);
+
+// focus check
+if (global.checkFocus) global.inFocus = window_has_focus();
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603

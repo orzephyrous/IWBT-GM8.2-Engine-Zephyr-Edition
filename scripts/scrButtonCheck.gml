@@ -5,4 +5,4 @@
 var buttonIn;
 buttonIn = argument0;
 
-return (keyboard_check_direct(buttonIn[0]));
+return (keyboard_check_direct(buttonIn[0]) && global.inFocus);

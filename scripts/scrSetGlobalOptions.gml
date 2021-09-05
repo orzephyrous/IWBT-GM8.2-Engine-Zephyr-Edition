@@ -32,4 +32,5 @@ global.secretItemTotal = 8;     //sets how many secret items for the game to sav
 global.bossItemTotal = 8;       //sets how many boss items for the game to save/load
 global.autosaveSecretItems = false; //sets whether to save secret items immediately when you grab them or if you have to hit a save
 
+global.checkFocus = true;    //sets whether or not player can move when the game window is not in focus
 global.closingAnimation = true;    //sets whether to have a animation when game ends
