@@ -158,6 +158,10 @@ if (global.gameStarted)
 
     scrSetRoomCaption();    //keep caption updated
 }
+
+// something that fixes the 3px auto-move when pressing "R"
+scrButtonCheck(global.leftButton);
+scrButtonCheck(global.rightButton);
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603
