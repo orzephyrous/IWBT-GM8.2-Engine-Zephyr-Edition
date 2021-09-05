@@ -44,6 +44,7 @@ References to renex engines:
 - Save encryption using buffer (set global.password in scrSetGlobalOptions)
 - Optional closing animation (optional, set global.closingAnimation in scrSetGlobalOptions)
 - Loading music from external folder
+- Focus check (player movements disabled when the game window is not in focus)
 
 New modifications:
 
