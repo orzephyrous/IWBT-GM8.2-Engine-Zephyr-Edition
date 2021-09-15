@@ -70,7 +70,6 @@ applies_to=self
 */
 ///game checks
 
-
 //set linear interpolation depending on what the current smoothing setting is
 texture_set_interpolation(global.smoothingMode);
 
@@ -164,7 +163,7 @@ scrButtonCheck(global.leftButton);
 scrButtonCheck(global.rightButton);
 
 // focus check
-if (global.checkFocus) global.inFocus = window_has_focus();
+if (global.checkFocus && !gameclosing) global.inFocus = window_has_focus();
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603
