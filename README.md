@@ -16,11 +16,11 @@ Download the GameMaker 8.2 installer [here](https://www.dropbox.com/s/87jc37aq3d
 
 You can find related resources in the gm82 server: discord.gg/P2hdajXnQk
 
-Version of extensions in this engine:
-GM8.2 Core 1.2.6 stable
-GM8.2 Sound 1.1.7 stable
-GM8.2 Joystick 1.0.4 stable (The engine does not support joystick inputs, but I'll just leave this extension here)
-GM8.2 Networking 1.0.0 stable
+Version of extensions in this engine NOW:
+GM8.2 Core 1.3.2
+GM8.2 Sound 1.1.7
+GM8.2 Joystick 1.0.4 (The engine does not support joystick inputs, but I'll just leave this extension here)
+GM8.2 Network 1.0.2
 
 ### Engine
 
