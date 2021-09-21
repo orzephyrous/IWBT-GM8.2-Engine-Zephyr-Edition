@@ -7,6 +7,8 @@ applies_to=self
 //initiailze menu variables
 
 difSelect = false;
+delText = false;
+delSelect = true;
 select = global.menuSelectPrev[0];
 select2 = 0;
 xSeperation = 239;
@@ -110,40 +112,82 @@ else
 {
     if (!difSelect)
     {
-        if (scrButtonCheckPressed(global.menuLeftButton))
+        if (!delText)
         {
-            sound_play(global.menuSound);
-            select -= 1;
-            if (select < 0)
-                select = 2;
-        }
-        else if (scrButtonCheckPressed(global.menuRightButton))
-        {
-            sound_play(global.menuSound);
-            select += 1;
-            if (select > 2)
-                select = 0;
-        }
-        else if (scrButtonCheckPressed(global.menuBackButton))
-        {
-            global.menuSelectPrev[0] = 0;
-            room_goto(rTitle);  //go back
-        }
-        else if (scrButtonCheckPressed(global.menuAcceptButton))
-        {
-            if (global.menuMode == 0)   //use the difficulty select room to select difficulty
-            {
-                global.savenum = select+1;
-                room_goto(rDifficultySelect);
-            }
-            else    //use the menu to select difficulty
+            if (scrButtonCheckPressed(global.menuLeftButton))
             {
                 sound_play(global.menuSound);
-                difSelect = true;
-                if (exists[select]) //check if there is a save in the current slot
-                    select2 = -1;   //default to load game
-                else
-                    select2 = 0;    //default to medium
+                select -= 1;
+                if (select < 0)
+                    select = 2;
+            }
+            else if (scrButtonCheckPressed(global.menuRightButton))
+            {
+                sound_play(global.menuSound);
+                select += 1;
+                if (select > 2)
+                    select = 0;
+            }
+            else if (scrButtonCheckPressed(global.menuBackButton))
+            {
+                global.menuSelectPrev[0] = 0;
+                room_goto(rTitle);  //go back
+            }
+            else if (scrButtonCheckPressed(global.menuDeleteButton))
+            {
+                if (file_exists("save"+string(select+1)))
+                {
+                    sound_play(global.menuSound);
+                    delText = true;
+                }
+            }
+            else if (scrButtonCheckPressed(global.menuAcceptButton))
+            {
+                if (global.menuMode == 0)   //use the difficulty select room to select difficulty
+                {
+                    global.savenum = select+1;
+                    room_goto(rDifficultySelect);
+                }
+                else    //use the menu to select difficulty
+                {
+                    sound_play(global.menuSound);
+                    difSelect = true;
+                    if (exists[select]) //check if there is a save in the current slot
+                        select2 = -1;   //default to load game
+                    else
+                        select2 = 0;    //default to medium
+                }
+            }
+        }
+        else
+        {
+            if (scrButtonCheckPressed(global.menuLeftButton))
+            {
+                sound_play(global.menuSound);
+                delSelect = !delSelect;
+            }
+            else if (scrButtonCheckPressed(global.menuRightButton))
+            {
+                sound_play(global.menuSound);
+                delSelect = !delSelect;
+            }
+            else if (scrButtonCheckPressed(global.menuBackButton))
+            {
+                delText = false;
+            }
+            else if (scrButtonCheckPressed(global.menuAcceptButton))
+            {
+                if (delSelect)
+                {
+                    // delete save
+                    if (file_exists("save"+string(select+1)))
+                        file_delete("save"+string(select+1));
+                    exists[select] = false;
+                    death[select] = 0;
+                    time[select] = 0;
+                    timeStr[select] = "0:00:00";
+                }
+                delText = false;
             }
         }
     }
@@ -287,10 +331,19 @@ for(i = 0; i < 3; i += 1)
     {
         if ((!difSelect) || (difSelect && i != select))
         {
-            if(difficulty[i]==0){draw_text(x+i*xSeperation+65,y+49,"Medium")}
-            else if(difficulty[i]==1){draw_text(x+i*xSeperation+65,y+49,"Hard")}
-            else if(difficulty[i]==2){draw_text(x+i*xSeperation+65,y+49,"Very Hard")}
-            else if(difficulty[i]==3){draw_text(x+i*xSeperation+65,y+49,"Impossible")}
+            if ((!delText) || (delSelect && i != select))
+            {
+                if(difficulty[i]==0){draw_text(x+i*xSeperation+65,y+49,"Medium")}
+                else if(difficulty[i]==1){draw_text(x+i*xSeperation+65,y+49,"Hard")}
+                else if(difficulty[i]==2){draw_text(x+i*xSeperation+65,y+49,"Very Hard")}
+                else if(difficulty[i]==3){draw_text(x+i*xSeperation+65,y+49,"Impossible")}
+            }
+            else
+            {
+                draw_text(x+i*xSeperation+63,y-100,"Are you sure#you want to#delete this save?")
+                if(delSelect) draw_text(x + i*xSeperation + 65, y+49,"< Yes >");
+                else draw_text(x + i*xSeperation + 65, y+49,"< No >");
+            }
         }
 
         draw_set_font(fDefault24);

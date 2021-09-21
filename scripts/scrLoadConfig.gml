@@ -40,6 +40,7 @@ global.menuDownButton[0] = vk_down;
 global.menuAcceptButton[0] = vk_shift;
 global.menuBackButton[0] = ord("Z");
 global.menuOptionsButton[0] = vk_enter;
+global.menuDeleteButton[0] = vk_delete;
 
 ini_close();
 
