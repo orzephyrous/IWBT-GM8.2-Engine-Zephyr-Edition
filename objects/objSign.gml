@@ -16,7 +16,9 @@ applies_to=self
 if (place_meeting(x,y,objPlayer))
 {
     if (scrButtonCheckPressed(global.upButton))
-        showText = true;
+        showText = !showText;
+    if (scrButtonCheckPressed(global.downButton))
+        showText = false;
 }
 else
 {
