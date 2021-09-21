@@ -12,6 +12,9 @@ global.savePlayerX = 0;
 global.savePlayerY = 0;
 global.grav = 1;
 global.saveGrav = 1;
+global.dotkid = 0;
+global.saveDotkid = 0;
+global.playerSkin = 1;
 
 var i;
 for (i = global.secretItemTotal-1; i >= 0; i-=1)

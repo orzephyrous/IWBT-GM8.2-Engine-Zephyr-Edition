@@ -70,6 +70,8 @@ applies_to=self
 */
 ///game checks
 
+if (gameclosing) exit;
+
 //set linear interpolation depending on what the current smoothing setting is
 texture_set_interpolation(global.smoothingMode);
 
@@ -88,6 +90,7 @@ if (global.gameStarted)
                     global.pauseDelay = global.pauseDelayLength; //set pause delay
 
                     instance_deactivate_all(true);  //deactivate everything
+                    instance_activate_object(__gm82core_object);  //the internal object for gm82core that should always be activated
 
                     global.pauseBg = background_create_from_screen(0,0,view_wview[0],view_hview[0],0,0); //create screenshot background
                 }
@@ -163,7 +166,7 @@ scrButtonCheck(global.leftButton);
 scrButtonCheck(global.rightButton);
 
 // focus check
-if (global.checkFocus && !gameclosing) global.inFocus = window_has_focus();
+if (global.checkFocus) global.inFocus = window_has_focus();
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603
@@ -218,6 +221,10 @@ if (global.debugMode && global.gameStarted && !global.gamePaused)
             instance_destroy();
 
         room_goto_previous();
+    }
+    if (keyboard_check_pressed(vk_control))
+    {
+        scrToggleDotkid();
     }
 }
 

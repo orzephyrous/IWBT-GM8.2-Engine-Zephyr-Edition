@@ -9,7 +9,7 @@ if (instance_exists(objPlayer) && (!global.noDeath && !global.debugNoDeath))
 
         with (objPlayer)
         {
-            instance_create(x,y,objBloodEmitter);
+            instance_create(x,y+8*global.grav*global.dotkid,objBloodEmitter);
             instance_destroy();
         }
 

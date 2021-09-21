@@ -12,6 +12,8 @@ if (savePosition)
     global.savePlayerX = objPlayer.x;
     global.savePlayerY = objPlayer.y;
     global.saveGrav = global.grav;
+    global.saveDotkid = global.dotkid;
+    global.saveSkin = global.playerSkin;
 
     //check if player is saving inside of a wall or in the ceiling when the player's position is floored to prevent save locking
     with (objPlayer)
@@ -65,6 +67,8 @@ ds_map_add(saveMap,"saveRoom",global.saveRoom);
 ds_map_add(saveMap,"savePlayerX",global.savePlayerX);
 ds_map_add(saveMap,"savePlayerY",global.savePlayerY);
 ds_map_add(saveMap,"saveGrav",global.saveGrav);
+ds_map_add(saveMap,"saveDotkid",global.saveDotkid);
+ds_map_add(saveMap,"saveSkin",global.saveSkin)
 
 var i;
 for (i = 0; i < global.secretItemTotal; i+=1)

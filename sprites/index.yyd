@@ -67,3 +67,17 @@ sprSecretItem
 sprBossItem
 sprGameOver
 sprPause
+sprPlayerIdleWhite
+sprPlayerJumpWhite
+sprPlayerFallWhite
+sprPlayerRunningWhite
+sprPlayerSlidingWhite
+sprDotKid
+sprDotKidOutline
+sprDotKidWhite
+sprDotKidOutlineWhite
+sprDotKidMask
+sprBowWhite
+sprDotKidMaskFlip
+sprToggleDot
+sprTogglePlayer

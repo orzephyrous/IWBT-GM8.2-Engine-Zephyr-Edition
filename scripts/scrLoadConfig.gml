@@ -42,6 +42,10 @@ global.menuBackButton[0] = ord("Z");
 global.menuOptionsButton[0] = vk_enter;
 global.menuDeleteButton[0] = vk_delete;
 
+//skin number keys
+global.skinButton1[0] = ord("1");
+global.skinButton2[0] = ord("2");
+
 ini_close();
 
 scrSaveConfig();    //save config in case something changed

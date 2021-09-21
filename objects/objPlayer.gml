@@ -18,6 +18,7 @@ onPlatform = false; //sets if player is currently standing on a platform
 
 xScale = 1; //sets the direction the player is facing (1 is facing right, -1 is facing left)
 
+scrSetPlayerSkin(); //set the player's skin
 scrSetPlayerMask(); //set the player's hitbox
 
 if (global.difficulty == 0 && global.gameStarted)   //create the player's bow
@@ -43,6 +44,10 @@ lib_id=1
 action_id=603
 applies_to=self
 */
+//check and set player's skin
+scrCheckPlayerSkin();
+scrSetPlayerSkin();
+
 //check left/right button presses
 var L, R, h;
 L = (scrButtonCheck(global.leftButton) || (global.directionalTapFix && scrButtonCheckPressed(global.leftButton)));
@@ -87,7 +92,7 @@ if (h != 0)  //player is moving
                 hspeed = maxSpeed * h;
         }
 
-        sprite_index = sprPlayerRunning;
+        sprite_index = _sprRunning;
         image_speed = 0.5;
     }
 }
@@ -113,15 +118,15 @@ else    //player is not moving
         }
     }
 
-    sprite_index = sprPlayerIdle;
+    sprite_index = _sprIdle;
     image_speed = 0.2;
 }
 
 
 if (!onPlatform)    //check if standing on a platform
 {
-    if((vspeed * global.grav) < -0.05) {sprite_index = sprPlayerJump;}
-    else if((vspeed * global.grav) > 0.05) {sprite_index = sprPlayerFall;}
+    if((vspeed * global.grav) < -0.05) {sprite_index = _sprJump;}
+    else if((vspeed * global.grav) > 0.05) {sprite_index = _sprFall;}
 }
 else
 {
@@ -165,7 +170,7 @@ if (onVineL || onVineR)
         xScale = 1;
 
     vspeed = 2 * global.grav;
-    sprite_index = sprPlayerSliding;
+    sprite_index = _sprSliding;
     image_speed = 1/2;
 
     //pressed away from the vine
@@ -180,7 +185,7 @@ if (onVineL || onVineR)
 
             vspeed = -9 * global.grav;
             sound_play("sndWallJump");
-            sprite_index = sprPlayerJump;
+            sprite_index = _sprJump;
         }
         else    //moving off vine
         {
@@ -189,7 +194,7 @@ if (onVineL || onVineR)
             else
                 hspeed = 3;
 
-            sprite_index = sprPlayerFall;
+            sprite_index = _sprFall;
         }
     }
 }
@@ -383,12 +388,12 @@ if (global.playerAnimationFix)
 
             if ((L || R) && !frozen)
             {
-                sprite_index = sprPlayerRunning;
+                sprite_index = _sprRunning;
                 image_speed = 1/2;
             }
             else
             {
-                sprite_index = sprPlayerIdle;
+                sprite_index = _sprIdle;
                 image_speed = 1/5;
             }
         }
@@ -396,19 +401,19 @@ if (global.playerAnimationFix)
         {
             if ((vspeed * global.grav) < 0)
             {
-                sprite_index = sprPlayerJump;
+                sprite_index = _sprJump;
                 image_speed = 1/2;
             }
             else
             {
-                sprite_index = sprPlayerFall;
+                sprite_index = _sprFall;
                 image_speed = 1/2;
             }
         }
     }
     else    //touching a vine
     {
-        sprite_index = sprPlayerSliding;
+        sprite_index = _sprSliding;
         image_speed = 1/2;
     }
 }
@@ -505,7 +510,15 @@ drawY = y;
 if (global.grav == -1)      //need to draw the player a pixel off in the y-axis when flipped for some reason
     drawY += 1;
 
-draw_sprite_ext(sprite_index,image_index,drawX,drawY,image_xscale*xScale,image_yscale*global.grav,image_angle,image_blend,image_alpha);
+if (!global.dotkid)
+{
+    draw_sprite_ext(sprite_index,image_index,drawX,drawY,image_xscale*xScale,image_yscale*global.grav,image_angle,image_blend,image_alpha);
+}
+else
+{
+    draw_sprite(_sprDot,0,drawX,drawY+8*global.grav);
+    draw_sprite(_sprDotOutline,0,drawX,drawY+8*global.grav);
+}
 
 //draw the player's hitbox
 if (global.debugShowHitbox)

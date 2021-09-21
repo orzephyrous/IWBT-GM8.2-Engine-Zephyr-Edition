@@ -52,7 +52,9 @@ References to renex engines:
 
 New modifications:
 
-- Depth of many objects are changed according to my customs (the suggested block tile depth is 9).
+- Dot kid available (press Ctrl to toggle dot kid in debug mode)
+- Skin system for standard player and dot kid (press 1 for default skin, 2 for white kid, and there can be more) 
+- Depth of many objects are changed according to my customs (however, the suggested block tile depth is 9).
 - V-string (y-align) display with "V" by default
 - Showing "Clear!" on window caption when the game is cleared
 - Option to stop the timer when the game is cleared (set global.timeWhenClear in scrSetGlobalOptions)
@@ -86,7 +88,7 @@ switch{
 ```
 
 - You can also place an objPlayMusic object in the room and set the variable "BGM" in its creation code. If you want something to stop music, use "scrStopMusic"
-- A template room (rTemplate) that has all of the correct view settings is included which can be duplicated and modified.
+- A template room (rTemplate) that has all of the correct view settings is included which can be duplicated and modified
 - A sample room is included not as an example for good needle but just for me to test the engine
 - If you're using slopes, it's possible that certain gimmicks such as ice blocks might not work properly with them because of how they're coded
 - Game saves are stored in the same folder with the .gm82/.exe file
@@ -102,3 +104,4 @@ Thanks ebb174 for testing this engine.
 ## Contact
 
 Discord: Zephyr#6056
+

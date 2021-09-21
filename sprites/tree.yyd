@@ -7,15 +7,27 @@
 +player
 	|sprPlayerMask
 	|sprPlayerMaskFlip
+	|sprDotKidMask
+	|sprDotKidMaskFlip
 	|sprPlayerIdle
 	|sprPlayerJump
 	|sprPlayerFall
 	|sprPlayerRunning
 	|sprPlayerSliding
 	|sprBow
+	|sprBowWhite
 	|sprBullet
 	|sprBlood
 	|sprGameOver
+	|sprPlayerIdleWhite
+	|sprPlayerJumpWhite
+	|sprPlayerFallWhite
+	|sprPlayerRunningWhite
+	|sprPlayerSlidingWhite
+	|sprDotKid
+	|sprDotKidOutline
+	|sprDotKidWhite
+	|sprDotKidOutlineWhite
 +blocks
 	|sprBlockMask
 	|sprMiniBlockMask
@@ -58,6 +70,8 @@
 	|sprSign
 	|sprGravityUp
 	|sprGravityDown
+	|sprToggleDot
+	|sprTogglePlayer
 +triggers
 	|sprTriggerMask
 	|sprButton

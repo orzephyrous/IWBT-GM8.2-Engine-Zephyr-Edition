@@ -82,3 +82,5 @@ objSecretIndicator
 objBossItem
 objBossIndicator
 objGameClear
+objToggleDot
+objTogglePlayer

@@ -5,6 +5,9 @@
 	|scrSetPlayerMask
 	|scrKillPlayer
 	|scrFlipGrav
+	|scrToggleDotkid
+	|scrCheckPlayerSkin
+	|scrSetPlayerSkin
 +world
 	|scrLoadMusic
 	|scrInitializeGlobals

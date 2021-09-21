@@ -180,6 +180,7 @@ else
                 if (delSelect)
                 {
                     // delete save
+                    sound_play(global.menuSound);
                     if (file_exists("save"+string(select+1)))
                         file_delete("save"+string(select+1));
                     exists[select] = false;

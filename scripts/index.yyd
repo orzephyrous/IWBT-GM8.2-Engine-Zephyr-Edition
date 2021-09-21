@@ -27,3 +27,6 @@ scrButtonCheckReleased
 scrDrawTextOutline
 scrMakeShapes
 scrMakeCircle
+scrToggleDotkid
+scrSetPlayerSkin
+scrCheckPlayerSkin

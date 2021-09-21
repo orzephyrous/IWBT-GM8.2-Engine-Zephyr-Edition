@@ -15,5 +15,5 @@ with (objPlayer)
 
     scrSetPlayerMask();
 
-    y += 4 * global.grav;
+    y += 4 * global.grav - 15 * global.dotkid * global.grav;
 }

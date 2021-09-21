@@ -32,6 +32,8 @@ if (loadFile)
         global.savePlayerX = ds_map_find_value(saveMap,"savePlayerX");
         global.savePlayerY = ds_map_find_value(saveMap,"savePlayerY");
         global.saveGrav = ds_map_find_value(saveMap,"saveGrav");
+        global.saveDotkid = ds_map_find_value(saveMap,"saveDotkid");
+        global.saveSkin = ds_map_find_value(saveMap,"saveSkin");
 
         if (is_string(global.saveRoom))   //check if the saved room loaded properly
         {
@@ -88,6 +90,8 @@ global.noPause = false;     //disable no pause mode
 global.autosave = false;    //disable autosaving since we're loading the game
 
 global.grav = global.saveGrav;
+global.dotkid = global.saveDotkid;
+global.playerSkin = global.saveSkin;
 
 var i;
 for (i = 0; i < global.secretItemTotal; i+=1)

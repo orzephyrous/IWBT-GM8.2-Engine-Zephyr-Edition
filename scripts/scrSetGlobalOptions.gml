@@ -7,7 +7,7 @@ global.debugNoDeath = false;    //enables god mode (toggle with Home key)
 global.debugInfJump = false;    //enables infinite jump (toggle with End key)
 global.debugShowHitbox = false; //enables showing the player's hitbox (toggle with Del key)
 
-global.roomCaptionDef = "I Wanna Be The GM8.2 Engine Zephyr Edition v0.1.0";  //sets default window caption (only works with the Professional version of Studio)
+global.roomCaptionDef = "I Wanna Be The GM8.2 Engine Zephyr Edition v0.1.1";  //sets default window caption (only works with the Professional version of Studio)
 global.roomCaptionLast = global.roomCaptionDef;
 room_caption = global.roomCaptionDef;
 

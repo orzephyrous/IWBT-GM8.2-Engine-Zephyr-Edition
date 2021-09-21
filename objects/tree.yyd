@@ -75,6 +75,8 @@
 	|objSign
 	|objGravityUp
 	|objGravityDown
+	|objToggleDot
+	|objTogglePlayer
 +saves
 	|objSaveMedium
 	|objSave
