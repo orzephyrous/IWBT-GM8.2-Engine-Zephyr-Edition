@@ -54,7 +54,7 @@ if (gameclosing)
     {
         window_set_region_scale(1,1);
         window_set_region_size(view_wview[0],ceil(view_hview[0]*sqr(closingvol)),1);
-        window_center();
+        window_set_position(windowX, windowYcenter-ceil(view_hview[0]*sqr(closingvol))/2)
     }
 
     draw_clear(merge_color(0,$ffffff,1-closingvol));
@@ -353,6 +353,8 @@ applies_to=self
 if (!gameclosing)
 {
     gameclosing = 1;
+    windowX = window_get_x();
+    windowYcenter = window_get_y()+window_get_height()/2;
     if (global.closingAnimation && !window_get_fullscreen())
     {
         window_set_showborder(0);
