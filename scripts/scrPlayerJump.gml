@@ -1,4 +1,4 @@
-if (place_meeting(x,y+(global.grav),objBlock) || onPlatform || place_meeting(x,y+(global.grav),objWater1))
+if (place_meeting(x,y+(global.grav),objBlock) || !place_free(x, y + global.grav) || onPlatform || place_meeting(x,y+(global.grav),objWater1))
 {
     vspeed = -jump;
     djump = 1;

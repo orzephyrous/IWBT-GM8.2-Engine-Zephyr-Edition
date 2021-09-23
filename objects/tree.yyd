@@ -26,6 +26,7 @@
 	|objSlideBlockR
 	|objBossBlock
 	|objSaveBlocker
+	|objBlockDynamic
 +slopes
 	|objSlope
 	|objSlopeDownLeft

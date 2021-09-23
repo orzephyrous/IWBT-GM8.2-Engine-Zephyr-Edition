@@ -23,6 +23,7 @@ objSlideBlockL
 objSlideBlockR
 objBossBlock
 objSaveBlocker
+objBlockDynamic
 objSlope
 objSlopeDownLeft
 objSlopeDownRight
@@ -67,6 +68,8 @@ objJumpRefresher
 objSign
 objGravityUp
 objGravityDown
+objToggleDot
+objTogglePlayer
 objSaveMedium
 objSave
 objSaveVHard
@@ -82,5 +85,3 @@ objSecretIndicator
 objBossItem
 objBossIndicator
 objGameClear
-objToggleDot
-objTogglePlayer

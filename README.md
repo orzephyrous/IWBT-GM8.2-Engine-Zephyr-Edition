@@ -1,6 +1,6 @@
 # IWBT-GM8.2-Engine-Zephyr-Edition
 
-"I Wanna" engine developed in GameMaker 8.2, based on [IWBT studio engine yoyoyo edition v1.51](https://github.com/YoYoYoDude/YoYoYo_Engine), with some references to [renex engine](https://github.com/omicronrex/renex-engine). The engine is probably ready since my first game using this engine, [Weirdle 4](https://delicious-fruit.com/ratings/game_details.php?id=23474), has just been released.
+"I Wanna" engine developed in GameMaker 8.2, based on [IWBT studio engine yoyoyo edition v1.51](https://github.com/YoYoYoDude/YoYoYo_Engine), with some references to [renex engine](https://github.com/omicronrex/renex-engine) and YoYoYo engine verve edition. The engine is probably ready since my first game using this engine, [Weirdle 4](https://delicious-fruit.com/ratings/game_details.php?id=23474), has just been released.
 
 ## Background
 
@@ -21,8 +21,6 @@ Version of extensions in this engine NOW:
 GM8.2 Core 1.3.2
 
 GM8.2 Sound 1.1.7
-
-GM8.2 Joystick 1.0.4 (The engine does not support joystick inputs, but I'll just leave this extension here)
 
 GM8.2 Network 1.0.2
 
@@ -49,6 +47,11 @@ References to renex engines:
 - Optional closing animation (optional, set global.closingAnimation in scrSetGlobalOptions)
 - Loading music from external folder
 - Focus check (player movements disabled when the game window is not in focus)
+
+References to verve:
+
+- Everything solid is equal to block
+- Moving block that pushes and carries player normally
 
 New modifications:
 

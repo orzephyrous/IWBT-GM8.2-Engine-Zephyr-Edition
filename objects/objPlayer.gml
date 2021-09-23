@@ -24,11 +24,11 @@ scrSetPlayerMask(); //set the player's hitbox
 if (global.difficulty == 0 && global.gameStarted)   //create the player's bow
     instance_create(x,y,objBow);
 
-if (global.autosave) //save the game if currently set to autosave
-{
-    scrSaveGame(true);
-    global.autosave = false;
-}
+xsafe = x;
+ysafe = y;
+
+xold = x;
+yold = y;
 #define Destroy_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -44,10 +44,15 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-//check and set player's skin
+///check and set player's skin
 scrCheckPlayerSkin();
 scrSetPlayerSkin();
-
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+/// movements
 //check left/right button presses
 var L, R, h;
 L = (scrButtonCheck(global.leftButton) || (global.directionalTapFix && scrButtonCheckPressed(global.leftButton)));
@@ -359,12 +364,81 @@ if (instance_exists(objSlope) && hspeed != 0)
     xprevious = x;
     yprevious = y;
 }
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+/// block(solid) collision
+vspeed += gravity;
+
+if (!place_free(x + hspeed, y + vspeed))
+{
+    if (!place_free(x + hspeed, y) && hspeed != 0)
+    {
+        var maxDist, dir;
+        maxDist = abs(hspeed);
+        dir = 180 * (hspeed < 0);
+        move_contact_solid(dir, maxDist);
+
+        hspeed = 0;
+    }
+
+    if (!place_free(x, y + vspeed) && vspeed != 0)
+    {
+        var maxDist, dir;
+        maxDist = abs(vspeed);
+        dir = 270 - 180 * (vspeed < 0);
+        move_contact_solid(dir, maxDist);
+
+        if (dir == 180 + global.grav * 90)
+            { djump = 1; }
+        vspeed = 0;
+    }
+
+    if (!place_free(x + hspeed, y + vspeed))
+        hspeed = 0;
+}
+
+xsafe = x + hspeed;
+ysafe = y + vspeed;
+
+vspeed -= gravity;
 #define Step_2
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603
 applies_to=self
 */
+/// collision with moving block
+
+//Split these into two with blocks so a user event 1 runs only after every single block's user event 0
+with(objBlockDynamic)
+{
+    inst = objPlayer;
+    event_user(0);
+}
+with(objBlockDynamic)
+{
+    event_user(1);
+}
+
+//Check if crushed
+if (!place_free(x, y))
+{
+    scrKillPlayer();
+}
+
+//Set variables for next frame
+xold = x;
+yold = y;
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+/// check border death and update sprite
+
 if ((x < 0 || x > room_width || y < 0 || y > room_height) && global.edgeDeath)  //check if player has left the room
     scrKillPlayer();
 
@@ -417,43 +491,6 @@ if (global.playerAnimationFix)
         image_speed = 1/2;
     }
 }
-#define Collision_objBlock
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-if (!place_free(x+hspeed,y))
-{
-    if (global.grav == 1)   //normal
-    {
-        if(hspeed <= 0){move_contact_solid(180,abs(hspeed));}
-        if(hspeed > 0){move_contact_solid(0,abs(hspeed));}
-    }
-    else    //flipped
-    {
-        if(hspeed < 0){move_contact_solid(180,abs(hspeed));}
-        if(hspeed >= 0){move_contact_solid(0,abs(hspeed));}
-    }
-    hspeed = 0;
-}
-
-if (!place_free(x,y+vspeed))
-{
-    if (global.grav == 1)   //normal
-    {
-        if(vspeed <= 0){move_contact_solid(90,abs(vspeed));}
-        if(vspeed > 0){move_contact_solid(270,abs(vspeed));djump=1;}
-    }
-    else    //flipped
-    {
-        if(vspeed <= 0){move_contact_solid(90,abs(vspeed));djump=1;}
-        if(vspeed > 0){move_contact_solid(270,abs(vspeed));}
-    }
-    vspeed = 0;
-}
-
-if (!place_free(x+hspeed,y+vspeed)) {hspeed = 0;}
 #define Collision_objPlatform
 /*"/*'/**//* YYD ACTION
 lib_id=1
