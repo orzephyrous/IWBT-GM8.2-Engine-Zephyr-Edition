@@ -1,4 +1,5 @@
 ///Check inputs that change the player's skin
+if (!global.skinEnabled) exit;
 
 if (scrButtonCheckPressed(global.skinButton1) && global.playerSkin != 1)
     global.playerSkin = 1;
