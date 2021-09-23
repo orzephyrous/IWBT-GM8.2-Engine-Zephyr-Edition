@@ -11,6 +11,7 @@ if (savePosition)
     global.saveRoom = room_get_name(room);
     global.savePlayerX = objPlayer.x;
     global.savePlayerY = objPlayer.y;
+    global.savePlayerXscale = objPlayer.xScale;
     global.saveGrav = global.grav;
     global.saveDotkid = global.dotkid;
     global.saveSkin = global.playerSkin;
@@ -66,6 +67,7 @@ ds_map_add(saveMap,"difficulty",global.difficulty);
 ds_map_add(saveMap,"saveRoom",global.saveRoom);
 ds_map_add(saveMap,"savePlayerX",global.savePlayerX);
 ds_map_add(saveMap,"savePlayerY",global.savePlayerY);
+ds_map_add(saveMap,"savePlayerXscale",global.savePlayerXscale);
 ds_map_add(saveMap,"saveGrav",global.saveGrav);
 ds_map_add(saveMap,"saveDotkid",global.saveDotkid);
 ds_map_add(saveMap,"saveSkin",global.saveSkin)

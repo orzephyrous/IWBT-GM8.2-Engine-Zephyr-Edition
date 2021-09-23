@@ -31,6 +31,7 @@ if (loadFile)
         global.saveRoom = ds_map_find_value(saveMap,"saveRoom");
         global.savePlayerX = ds_map_find_value(saveMap,"savePlayerX");
         global.savePlayerY = ds_map_find_value(saveMap,"savePlayerY");
+        global.savePlayerXscale = ds_map_find_value(saveMap,"savePlayerXscale");
         global.saveGrav = ds_map_find_value(saveMap,"saveGrav");
         global.saveDotkid = ds_map_find_value(saveMap,"saveDotkid");
         global.saveSkin = ds_map_find_value(saveMap,"saveSkin");
@@ -107,6 +108,6 @@ for (i = 0; i < global.bossItemTotal; i+=1)
 
 global.gameClear = global.saveGameClear;
 
-instance_create(global.savePlayerX,global.savePlayerY,objPlayer);
+with (instance_create(global.savePlayerX,global.savePlayerY,objPlayer)) xScale = global.savePlayerXscale;
 
 execute_string("room_goto("+global.saveRoom+");");
