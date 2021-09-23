@@ -28,6 +28,7 @@ global.playerAnimationFix = false;  //sets whether to fix the weird player anima
 global.alignShow = true;    //sets whether to show player's y align when pressing global.alignShowButton
 global.bowAdvanced = true;    //sets whether to change bow color when player loses double jump
 global.skinEnabled = true;    //sets whether to allow changing player's skin
+global.platformSquish = true;    //sets whether platform/block squish kills player
 
 global.secretItemTotal = 8;     //sets how many secret items for the game to save/load
 global.bossItemTotal = 8;       //sets how many boss items for the game to save/load

@@ -424,7 +424,7 @@ with(objBlockDynamic)
 }
 
 //Check if crushed
-if (!place_free(x, y))
+if (!place_free(x, y) && (global.platformSquish || !onPlatform))
 {
     scrKillPlayer();
 }
