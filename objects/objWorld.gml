@@ -90,7 +90,7 @@ if (global.gameStarted)
                     global.pauseDelay = global.pauseDelayLength; //set pause delay
 
                     instance_deactivate_all(true);  //deactivate everything
-                    instance_activate_object(__gm82core_object);  //the internal object for gm82core that should always be activated
+                    instance_activate_object(core);  //the internal object for gm82core that should always be activated
 
                     global.pauseBg = background_create_from_screen(0,0,view_wview[0],view_hview[0],0,0); //create screenshot background
                 }

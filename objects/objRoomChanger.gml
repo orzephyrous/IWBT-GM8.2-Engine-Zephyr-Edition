@@ -28,4 +28,4 @@ else
 }
 
 transition_kind = kind;
-room_goto(roomTo);
+if (room != roomTo) room_goto(roomTo);
