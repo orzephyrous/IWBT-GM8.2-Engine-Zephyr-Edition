@@ -37,3 +37,10 @@ action_id=603
 applies_to=self
 */
 instance_destroy();
+#define Collision_objBlockDynamic
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
+instance_destroy();

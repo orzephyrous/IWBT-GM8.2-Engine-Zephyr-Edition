@@ -437,6 +437,15 @@ lib_id=1
 action_id=603
 applies_to=self
 */
+/// collision with player killer
+var killer;
+killer = instance_place(x, y, objPlayerKiller);
+if (killer != noone) scrKillPlayer();
+/*"/*'/**//* YYD ACTION
+lib_id=1
+action_id=603
+applies_to=self
+*/
 /// check border death and update sprite
 
 if ((x < 0 || x > room_width || y < 0 || y > room_height) && global.edgeDeath)  //check if player has left the room
@@ -531,7 +540,6 @@ lib_id=1
 action_id=603
 applies_to=self
 */
-scrKillPlayer();
 #define Draw_0
 /*"/*'/**//* YYD ACTION
 lib_id=1

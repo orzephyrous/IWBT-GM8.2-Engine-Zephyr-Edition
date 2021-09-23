@@ -137,9 +137,9 @@ if (global.gameStarted)
 
         if ((global.timeWhenDead || instance_exists(objPlayer)) && (global.timeWhenClear || !global.gameClear))  //increment timer
         {
-            global.timeMicro += 1;
-            global.time += global.timeMicro div 50;
-            global.timeMicro = global.timeMicro mod 50;
+            global.timeMicro += delta_time;
+            global.time += global.timeMicro div 1000;
+            global.timeMicro = global.timeMicro mod 1000;
         }
     }
     else    //game is paused, check for volume controls
