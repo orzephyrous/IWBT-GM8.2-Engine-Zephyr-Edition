@@ -51,7 +51,7 @@ objCherryBounceLat
 objCherryBounceVert
 objKillerBlock
 objTriggerManager
-objFreeTrigger
+objTrigger
 objTriggerButton
 objKillerTrigger
 objSpikeTriggerUp

@@ -58,7 +58,7 @@
 	|objKillerBlock
 +triggers
 	|objTriggerManager
-	|objFreeTrigger
+	|objTrigger
 	|objTriggerButton
 	|objKillerTrigger
 	|objSpikeTriggerUp
