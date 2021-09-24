@@ -24,6 +24,12 @@ scrSetPlayerMask(); //set the player's hitbox
 if (global.difficulty == 0 && global.gameStarted)   //create the player's bow
     instance_create(x,y,objBow);
 
+if (global.autosave) //Save the game if currently set to autosave
+{
+    scrSaveGame(true);
+    global.autosave = false;
+}
+
 xsafe = x;
 ysafe = y;
 
@@ -370,6 +376,7 @@ action_id=603
 applies_to=self
 */
 /// block(solid) collision
+
 vspeed += gravity;
 
 if (!place_free(x + hspeed, y + vspeed))
@@ -423,8 +430,17 @@ with(objBlockDynamic)
     event_user(1);
 }
 
+var onMovingBlock,onDynamic;
+onMovingBlock = false;
+onDynamic = instance_place(x,y+global.grav,objBlockDynamic)
+if (onDynamic != noone)
+{
+    if (onDynamic.speed != 0) onMovingBlock = true;
+    else onMovingBlock = false;
+}
+
 //Check if crushed
-if (!place_free(x, y) && (global.platformSquish || !onPlatform))
+if (!place_free(x, y) && (global.platformMode != 2 || onMovingBlock))
 {
     scrKillPlayer();
 }
@@ -506,14 +522,26 @@ lib_id=1
 action_id=603
 applies_to=self
 */
+/// snap to platform
+
 if (global.grav == 1)   //normal
 {
+    var landOnPlatform;
+    landOnPlatform = (bbox_bottom - vspeed - 1 <= other.bbox_top - min(other.vspeed, 0))
     if (y-vspeed/2 <= other.y)
     {
         if (other.vspeed >= 0)
         {
-            y = other.y-9;
-            vspeed = other.vspeed;
+            if (place_free(x,other.y-9) || (global.platformMode = 2 && landOnPlatform))
+            {
+                y = other.y-9;
+                vspeed = other.vspeed;
+            }
+            else if (global.platformMode = 0 && landOnPlatform)
+            {
+                y = other.y-9;
+                scrKillPlayer();
+            }
         }
 
         onPlatform = true;
@@ -522,12 +550,22 @@ if (global.grav == 1)   //normal
 }
 else    //flipped
 {
+    var landOnPlatform;
+    landOnPlatform = bbox_top - vspeed + 1 >= other.bbox_bottom - max(other.vspeed, 0);
     if (y-vspeed/2 >= other.y+other.sprite_height-1)
     {
         if (other.yspeed <= 0)
         {
-            y = other.y+other.sprite_height+8;
-            vspeed = other.yspeed;
+            if (place_free(x,other.y+other.sprite_height+8) || (global.platformMode = 2 && landOnPlatform))
+            {
+                y = other.y+other.sprite_height+8;
+                vspeed = other.yspeed;
+            }
+            else if (global.platformMode = 0 && landOnPlatform)
+            {
+                y = other.y+other.sprite_height+8;
+                scrKillPlayer();
+            }
         }
 
         onPlatform = true;

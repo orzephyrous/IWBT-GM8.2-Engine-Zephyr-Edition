@@ -34,3 +34,5 @@
 	|scrDrawTextOutline
 	|scrMakeShapes
 	|scrMakeCircle
+	|scrEaseValue
+	|scrMakeTrigger

@@ -52,13 +52,15 @@ References to verve:
 
 - Everything solid is equal to block
 - Moving block that pushes and carries player normally
+- General trigger system (see the creation code of objTriggerManager and scrMakeTrigger)
 
 New modifications:
 
-- Dot kid available (press Ctrl to toggle dot kid in debug mode)
-- Skin system for standard player and dot kid (press 1 for default skin, 2 for white kid, and there can be more) 
-- Depth of many objects are changed according to my customs (however, the suggested block tile depth is 9).
-- V-string (y-align) display with "V" by default
+- Optional platform squish performance (see global.platformMode in scrSetGlobalOptions)
+- Dot kid available for both gravity directions (press Ctrl to toggle dot kid in debug mode)
+- Optional skin system for standard player and dot kid (press 1 for default skin, 2 for white kid, and there can be more) 
+- Depth of many objects are changed according to my custom (however, the suggested block tile depth is 9).
+- V-string (y-align) display ("V" by default)
 - Showing "Clear!" on window caption when the game is cleared
 - Option to stop the timer when the game is cleared (set global.timeWhenClear in scrSetGlobalOptions)
 - Option to have a different bow color when player doesn't have second jump (set global.bowAdvanced in scrSetGlobalOptions)
@@ -107,4 +109,3 @@ Thanks ebb174 for testing this engine.
 ## Contact
 
 Discord: Zephyr#6056
-

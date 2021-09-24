@@ -30,3 +30,5 @@ scrMakeCircle
 scrToggleDotkid
 scrSetPlayerSkin
 scrCheckPlayerSkin
+scrEaseValue
+scrMakeTrigger

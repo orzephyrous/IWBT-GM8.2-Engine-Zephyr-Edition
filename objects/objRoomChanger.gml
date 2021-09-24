@@ -10,6 +10,8 @@ warpX = 0;
 warpY = 0;
 roomTo = rTemplate;
 kind = 0;
+
+autosave = true;
 #define Collision_objPlayer
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -26,6 +28,8 @@ else
     objPlayer.x = warpX;
     objPlayer.y = warpY;
 }
+
+global.autosave = autosave;
 
 transition_kind = kind;
 if (room != roomTo) room_goto(roomTo);

@@ -57,6 +57,7 @@
 	|objCherryBounceVert
 	|objKillerBlock
 +triggers
+	|objTriggerManager
 	|objFreeTrigger
 	|objTriggerButton
 	|objKillerTrigger

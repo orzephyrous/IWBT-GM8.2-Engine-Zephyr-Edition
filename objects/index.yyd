@@ -50,6 +50,7 @@ objCherryBounceRandom
 objCherryBounceLat
 objCherryBounceVert
 objKillerBlock
+objTriggerManager
 objFreeTrigger
 objTriggerButton
 objKillerTrigger

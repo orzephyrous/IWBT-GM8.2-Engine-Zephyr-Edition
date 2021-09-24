@@ -8,6 +8,7 @@ applies_to=self
 
 event_inherited();
 
+autosave = false;
 //can be changed in creation code
 smoothTransition = false;   //sets whether the player wraps around the screen for a smooth transition to the next room (this requires the room sizes to be the same)
 #define Collision_objPlayer

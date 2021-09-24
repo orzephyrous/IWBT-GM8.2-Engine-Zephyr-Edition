@@ -36,8 +36,25 @@ if (speed != 0 || yspeed != 0)  //make sure the platform is moving before doing 
 
     with (instance_place(x,y-(2*global.grav),objPlayer))
     {
-        y += other.vspeed + other.yspeed;
-        if (place_free(x+other.hspeed,y)) x += other.hspeed;
+        if (bbox_bottom <= other.bbox_top || bbox_top >= other.bbox_bottom)
+        {
+            y += other.vspeed + other.yspeed;
+            if (!place_free(x, y))
+            {
+                if (global.platformMode = 1)  //squish fall
+                {
+                    var yy;
+                    yy = other.y - (bbox_bottom - y) - 1;
+                    move_contact_solid(90, y - yy); //Move against solid to not get snapped into a wall
+                    vspeed = max(other.vspeed, 0);
+                }
+                else if (global.platformMode = 2)  //go through the ceiling
+                {
+                    onPlatform = true;
+                }
+            }
+            if (place_free(x+other.hspeed,y)) x += other.hspeed;
+        }
     }
 
     y += yspeed;

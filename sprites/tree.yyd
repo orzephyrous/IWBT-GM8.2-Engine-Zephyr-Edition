@@ -72,6 +72,7 @@
 	|sprGravityDown
 	|sprToggleDot
 	|sprTogglePlayer
+	|sprEmpty
 +triggers
 	|sprTriggerMask
 	|sprButton
