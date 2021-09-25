@@ -1,4 +1,4 @@
-///sets the player's sprites
+///sets the player's sprites, add sprite to each _spr... values
 switch (global.playerSkin)
 {
     case 1:

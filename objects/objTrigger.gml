@@ -22,8 +22,8 @@ else keyed = 1;
 if (keyed)
 {
     global.trigger[trg] = true;    //set trigger when touched by player
-    if snd != "" sound_play(snd);
-    if des instance_destroy();
+    if (snd != "") sound_play(snd);
+    if (des) instance_destroy();
 }
 #define Other_4
 /*"/*'/**//* YYD ACTION

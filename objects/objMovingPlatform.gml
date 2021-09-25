@@ -6,6 +6,7 @@ applies_to=self
 */
 event_inherited();
 
+carry = true;   //set the platform to carry player
 bounce = true;  //set the platform to bounce against walls
 #define Step_0
 /*"/*'/**//* YYD ACTION
@@ -17,9 +18,9 @@ if (speed != 0 || yspeed != 0)  //make sure the platform is moving before doing 
 {
     if (bounce)
     {
-        if (!place_free(x+hspeed,y)) {hspeed = -hspeed;}
+        if (!place_free(x + hspeed, y)) {hspeed = -hspeed;}
 
-        if (!place_free(x,y+vspeed+yspeed))
+        if (!place_free(x, y + vspeed + yspeed))
         {
             if (vspeed != 0)
             {
@@ -34,12 +35,11 @@ if (speed != 0 || yspeed != 0)  //make sure the platform is moving before doing 
         }
     }
 
-    with (instance_place(x,y-(2*global.grav),objPlayer))
+    with (instance_place(x, y - 2 * global.grav, objPlayer))
     {
         if (bbox_bottom <= other.bbox_top || bbox_top >= other.bbox_bottom)
         {
-            y += other.vspeed + other.yspeed;
-            if (!place_free(x, y))
+            if (!place_free(x, y + other.vspeed + other.yspeed))
             {
                 if (global.platformMode = 1)  //squish fall
                 {
@@ -50,10 +50,15 @@ if (speed != 0 || yspeed != 0)  //make sure the platform is moving before doing 
                 }
                 else if (global.platformMode = 2)  //go through the ceiling
                 {
+                    y += other.vspeed + other.yspeed;
                     onPlatform = true;
                 }
+                else
+                {
+                    y += other.vspeed + other.yspeed
+                }
             }
-            if (place_free(x+other.hspeed,y)) x += other.hspeed;
+            if (place_free(x + other.hspeed, y) && other.carry) x += other.hspeed;
         }
     }
 

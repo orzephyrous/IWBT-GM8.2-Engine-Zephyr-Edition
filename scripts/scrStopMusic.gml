@@ -2,6 +2,6 @@
 
 global.currentMusicID = "";
 
-if global.currentMusic!="" sound_stop(global.currentMusic);
+if (global.currentMusic != "") sound_stop(global.currentMusic);
 
 global.currentMusic = ""

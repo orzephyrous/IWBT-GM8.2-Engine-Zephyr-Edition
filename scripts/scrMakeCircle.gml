@@ -18,7 +18,7 @@ spawnObj = argument5;
 var i;
 for (i = 0; i < spawnNum; i += 1)
 {
-    a = instance_create(spawnX,spawnY,spawnObj);
+    a = instance_create(spawnX, spawnY, spawnObj);
     a.speed = spawnSpeed;
     a.direction = spawnAngle + i * (360 / spawnNum);
 }

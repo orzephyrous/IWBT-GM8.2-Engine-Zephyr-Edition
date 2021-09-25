@@ -56,7 +56,8 @@ if (instance_exists(objPlayer))
         y += 1; //need to draw the sprite a pixel off when flipped
     }
 
-    if global.bowAdvanced image_index = !objPlayer.djump;
+    if (global.bowAdvanced)
+        image_index = !objPlayer.djump;
 }
 else
 {

@@ -1,4 +1,4 @@
-///Check inputs that change the player's skin
+///Check inputs that change the player's skin, add buttons in scrLoadConfig
 if (!global.skinEnabled) exit;
 
 if (scrButtonCheckPressed(global.skinButton1) && global.playerSkin != 1)

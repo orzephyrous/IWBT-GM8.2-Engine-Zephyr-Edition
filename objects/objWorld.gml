@@ -32,8 +32,8 @@ applies_to=self
 
 if (!window_get_fullscreen())
 {
-    window_set_position(global.windowXPrev,global.windowYPrev);
-    window_set_size(global.windowWidthPrev,global.windowHeightPrev);
+    window_set_position(global.windowXPrev, global.windowYPrev);
+    window_set_size(global.windowWidthPrev, global.windowHeightPrev);
 }
 #define Step_0
 /*"/*'/**//* YYD ACTION
@@ -44,24 +44,22 @@ applies_to=self
 ///closing animation
 if (gameclosing)
 {
-    closingvol=max(0,closingvol*0.9);
-    global.volumeLevel = closingvol*global.volumeLevel;
-    sound_global_volume(global.volumeLevel/100);
-    if (closingvol<=0.025) game_end();
+    closingvol = max(0, closingvol * 0.9);
+    global.volumeLevel = closingvol * global.volumeLevel;
+    sound_global_volume(global.volumeLevel / 100);
+    if (closingvol <= 0.025) game_end();
 
-    closingk=!closingk
+    closingk =! closingk
     if (closingk)
     {
-        window_set_region_scale(1,1);
-        window_set_region_size(view_wview[0],ceil(view_hview[0]*sqr(closingvol)),1);
-        window_set_position(windowX, windowYcenter-ceil(view_hview[0]*sqr(closingvol))/2)
+        window_set_region_scale(1, 1);
+        window_set_region_size(view_wview[0], ceil(view_hview[0] * sqr(closingvol)), 1);
+        window_set_position(windowX, windowYcenter - ceil(view_hview[0] * sqr(closingvol)) / 2)
     }
 
-    draw_clear(merge_color(0,$ffffff,1-closingvol));
-    window_set_color(merge_color(0,$ffffff,1-closingvol));
+    draw_clear(merge_color(0, $ffffff, 1 - closingvol));
+    window_set_color(merge_color(0, $ffffff, 1-closingvol));
     screen_refresh();
-
-    exit;
 }
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -92,7 +90,7 @@ if (global.gameStarted)
                     instance_deactivate_all(true);  //deactivate everything
                     instance_activate_object(core);  //the internal object for gm82core that should always be activated
 
-                    global.pauseBg = background_create_from_screen(0,0,view_wview[0],view_hview[0],0,0); //create screenshot background
+                    global.pauseBg = background_create_from_screen(0, 0, view_wview[0], view_hview[0], 0, 0); //create screenshot background
                 }
             }
             else    //game currently paused, unpause the game
@@ -121,13 +119,13 @@ if (global.gameStarted)
         if (scrButtonCheckPressed(global.restartButton))
         {
             //stop death sound
-            if global.deathSound!="" sound_stop(global.deathSound);
+            if (global.deathSound != "") sound_stop(global.deathSound);
 
             ///return to old gain if music is being faded out
             if (global.musicFading)
             {
                 global.musicFading = false;
-                if global.currentMusic!="" sound_volume(global.currentMusic,global.currentGain);
+                if (global.currentMusic != "") sound_volume(global.currentMusic, global.currentGain);
                 alarm[0] = -1;   //reset alarm that pauses music
             }
 
@@ -155,7 +153,7 @@ if (global.gameStarted)
                 global.volumeLevel -= 1;
         }
 
-        sound_global_volume(global.volumeLevel/100);  //set master gain
+        sound_global_volume(global.volumeLevel / 100);  //set master gain
     }
 
     scrSetRoomCaption();    //keep caption updated
@@ -193,7 +191,7 @@ if (global.debugMode && global.gameStarted && !global.gamePaused)
         with (objPlayer)
         {
             scrSaveGame(true);
-            sound_play("sndItem");
+            sound_play("sndSave");
         }
     }
     if (keyboard_check_pressed(vk_delete))  //toggles showing the hitbox
@@ -286,10 +284,11 @@ if (keyboard_check(vk_control) && keyboard_check_pressed(ord("M")) && !global.ga
 if keyboard_check_pressed(vk_f9)
 {
     //screen capture
-    screen_num = 1
-    while true
+    var screenNum;
+    screenNum = 1
+    while (true)
     {
-        filename = "screenshot_"+string(screen_num)+".png";
+        filename = "screenshot_"+string(screenNum)+".png";
         if !file_exists(filename)
         {
             screen_save(filename);
@@ -297,7 +296,7 @@ if keyboard_check_pressed(vk_f9)
         }
         else
         {
-            screen_num += 1;
+            screenNum += 1;
         }
     }
 }
@@ -309,7 +308,7 @@ applies_to=self
 */
 ///initialize everything
 
-//load music in "data"
+//load music in "data" folder
 scrLoadMusic();
 
 //initialize all variables
@@ -340,7 +339,7 @@ applies_to=self
 */
 ///fade current music out
 global.musicFading = true;
-sound_fade(global.currentMusic,0,50);                       //fade out music over 1 second
+sound_fade(global.currentMusic, 0, 50);                       //fade out music over 1 second
 
 alarm[0] = 50;  //pause music when it's done fading
 #define Other_11
@@ -354,7 +353,7 @@ if (!gameclosing)
 {
     gameclosing = 1;
     windowX = window_get_x();
-    windowYcenter = window_get_y()+window_get_height()/2;
+    windowYcenter = window_get_y() + window_get_height() / 2;
     if (global.closingAnimation && !window_get_fullscreen())
     {
         window_set_showborder(0);
@@ -390,15 +389,15 @@ if (global.debugOverlay)
         drawAlign = objPlayer.x mod 3;
     }
 
-    scrDrawTextOutline(20,20,"X: "+string(drawX),c_black,c_white);
-    scrDrawTextOutline(20,40,"Y: "+string(drawY),c_black,c_white);
-    scrDrawTextOutline(20,60,"Align: "+string(drawAlign),c_black,c_white);
-    scrDrawTextOutline(20,80,"Room name: "+room_get_name(room),c_black,c_white);
-    scrDrawTextOutline(20,100,"Room number: "+string(room),c_black,c_white);
-    scrDrawTextOutline(20,120,"God mode: "+string(global.debugNoDeath),c_black,c_white);
-    scrDrawTextOutline(20,140,"Infinite jump: "+string(global.debugInfJump),c_black,c_white);
-    scrDrawTextOutline(20,160,"FPS: "+string(fps),c_black,c_white);
-    scrDrawTextOutline(20,180,"Real FPS: "+string(fps_real),c_black,c_white);
+    scrDrawTextOutline(20, 20, "X: " + string(drawX), c_black, c_white);
+    scrDrawTextOutline(20, 40, "Y: " + string(drawY), c_black, c_white);
+    scrDrawTextOutline(20, 60, "Align: " + string(drawAlign), c_black, c_white);
+    scrDrawTextOutline(20, 80, "Room name: " + room_get_name(room), c_black, c_white);
+    scrDrawTextOutline(20, 100, "Room number: " + string(room), c_black, c_white);
+    scrDrawTextOutline(20, 120, "God mode: " + string(global.debugNoDeath), c_black, c_white);
+    scrDrawTextOutline(20, 140, "Infinite jump: " + string(global.debugInfJump), c_black, c_white);
+    scrDrawTextOutline(20, 160, "FPS: " + string(fps), c_black, c_white);
+    scrDrawTextOutline(20, 180, "Real FPS: " + string(fps_real), c_black, c_white);
 }
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -412,22 +411,22 @@ if (global.gamePaused)  //check if game is paused to draw the pause screen
     draw_clear(c_black);
 
     if (background_exists(global.pauseBg))       //check if surface exists before drawing it
-        draw_background(global.pauseBg,0,0);
+        draw_background(global.pauseBg, 0, 0);
 
     draw_set_color(c_black);
     draw_set_alpha(0.4);
 
-    draw_rectangle(view_xview[0],view_yview[0],view_xview[0]+view_wview[0],view_yview[0]+view_hview[0],0);    //darken the paused screen
+    draw_rectangle(view_xview[0], view_yview[0], view_xview[0] + view_wview[0], view_yview[0] + view_hview[0], 0);    //darken the paused screen
 
     draw_set_alpha(1);
 
     draw_set_color(c_white);
 
-    draw_set_halign(fa_center);
-    draw_set_font(fDefault30);
-
+    //draw_set_halign(fa_center);
+    //draw_set_font(fDefault30);
     //draw_text(view_xview[0] + (view_wview[0]/2),view_yview[0] + (view_hview[0]/2) - 24,"PAUSE");
-    draw_sprite(sprPause, -1, view_xview[0] + view_wview[0]/2, view_yview[0] + view_hview[0]/2)
+
+    draw_sprite(sprPause, -1, view_xview[0] + view_wview[0] / 2, view_yview[0] + view_hview[0] / 2)
 
     draw_set_halign(fa_left);
     draw_set_font(fDefault18);
@@ -444,9 +443,9 @@ if (global.gamePaused)  //check if game is paused to draw the pause screen
     t = t mod 10;
     timeText += string(floor(t));
 
-    draw_text(view_xview[0] + 20,view_yview[0] + 516,"Volume: " + string(global.volumeLevel) + "%");
-    draw_text(view_xview[0] + 20,view_yview[0] + 541,"Deaths: " + string(global.death));
-    draw_text(view_xview[0] + 20,view_yview[0] + 566,"Time: " + timeText);
+    draw_text(view_xview[0] + 20, view_yview[0] + 516, "Volume: " + string(global.volumeLevel) + "%");
+    draw_text(view_xview[0] + 20, view_yview[0] + 541, "Deaths: " + string(global.death));
+    draw_text(view_xview[0] + 20, view_yview[0] + 566, "Time: " + timeText);
 }
 /*"/*'/**//* YYD ACTION
 lib_id=1
@@ -461,5 +460,5 @@ if (global.debugMode && room == rTitle)
     draw_set_font(fDefault12);
     draw_set_halign(fa_left);
 
-    draw_text(34,34,"Debug mode");
+    draw_text(34, 34, "Debug mode");
 }

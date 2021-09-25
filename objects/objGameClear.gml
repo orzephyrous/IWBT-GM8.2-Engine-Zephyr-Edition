@@ -9,5 +9,5 @@ applies_to=self
 if (!global.gameClear)
 {
     global.gameClear = true;
-    scrSaveGame(true);
+    if (global.saveWhenClear) scrSaveGame(true);
 }

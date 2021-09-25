@@ -13,9 +13,10 @@ if (loadFile)
 
     saveMap = ds_map_create();
     b = buffer_create();
-    buffer_load(b,"save"+string(global.savenum));
-    if (global.password!="") buffer_rc4(b,global.password);
-    ds_map_read(saveMap,buffer_read_hex(b,buffer_get_size(b)));
+    buffer_load(b, "save" + string(global.savenum));
+    if (global.password != "")
+        buffer_rc4(b, global.password);
+    ds_map_read(saveMap, buffer_read_hex(b, buffer_get_size(b)));
     buffer_destroy(b);
 
     var saveValid;
@@ -23,18 +24,18 @@ if (loadFile)
 
     if (saveMap != -1)  //check if the save map loaded correctly
     {
-        global.death = ds_map_find_value(saveMap,"death");
-        global.time = ds_map_find_value(saveMap,"time");
-        global.timeMicro = ds_map_find_value(saveMap,"timeMicro");
+        global.death = ds_map_find_value(saveMap, "death");
+        global.time = ds_map_find_value(saveMap, "time");
+        global.timeMicro = ds_map_find_value(saveMap, "timeMicro");
 
-        global.difficulty = ds_map_find_value(saveMap,"difficulty");
-        global.saveRoom = ds_map_find_value(saveMap,"saveRoom");
-        global.savePlayerX = ds_map_find_value(saveMap,"savePlayerX");
-        global.savePlayerY = ds_map_find_value(saveMap,"savePlayerY");
-        global.savePlayerXscale = ds_map_find_value(saveMap,"savePlayerXscale");
-        global.saveGrav = ds_map_find_value(saveMap,"saveGrav");
-        global.saveDotkid = ds_map_find_value(saveMap,"saveDotkid");
-        global.saveSkin = ds_map_find_value(saveMap,"saveSkin");
+        global.difficulty = ds_map_find_value(saveMap, "difficulty");
+        global.saveRoom = ds_map_find_value(saveMap, "saveRoom");
+        global.savePlayerX = ds_map_find_value(saveMap, "savePlayerX");
+        global.savePlayerY = ds_map_find_value(saveMap, "savePlayerY");
+        global.savePlayerXscale = ds_map_find_value(saveMap, "savePlayerXscale");
+        global.saveGrav = ds_map_find_value(saveMap, "saveGrav");
+        global.saveDotkid = ds_map_find_value(saveMap, "saveDotkid");
+        global.saveSkin = ds_map_find_value(saveMap, "saveSkin");
 
         if (is_string(global.saveRoom))   //check if the saved room loaded properly
         {
@@ -47,18 +48,18 @@ if (loadFile)
         }
 
         var i;
-        for (i = 0; i < global.secretItemTotal; i+=1)
+        for (i = 0; i < global.secretItemTotal; i += 1)
         {
-            global.saveSecretItem[i] = ds_map_find_value(saveMap,"saveSecretItem["+string(i)+"]");
+            global.saveSecretItem[i] = ds_map_find_value(saveMap, "saveSecretItem[" + string(i) + "]");
         }
 
         var i;
-        for (i = 0; i < global.bossItemTotal; i+=1)
+        for (i = 0; i < global.bossItemTotal; i += 1)
         {
-            global.saveBossItem[i] = ds_map_find_value(saveMap,"saveBossItem["+string(i)+"]");
+            global.saveBossItem[i] = ds_map_find_value(saveMap, "saveBossItem[" + string(i) + "]");
         }
 
-        global.saveGameClear = ds_map_find_value(saveMap,"saveGameClear");
+        global.saveGameClear = ds_map_find_value(saveMap, "saveGameClear");
 
         //destroy the map
         ds_map_destroy(saveMap);
@@ -95,19 +96,19 @@ global.dotkid = global.saveDotkid;
 global.playerSkin = global.saveSkin;
 
 var i;
-for (i = 0; i < global.secretItemTotal; i+=1)
+for (i = 0; i < global.secretItemTotal; i += 1)
 {
     global.secretItem[i] = global.saveSecretItem[i];
 }
 
 var i;
-for (i = 0; i < global.bossItemTotal; i+=1)
+for (i = 0; i < global.bossItemTotal; i += 1)
 {
     global.bossItem[i] = global.saveBossItem[i];
 }
 
 global.gameClear = global.saveGameClear;
 
-with (instance_create(global.savePlayerX,global.savePlayerY,objPlayer)) xScale = global.savePlayerXscale;
+with (instance_create(global.savePlayerX, global.savePlayerY, objPlayer)) xScale = global.savePlayerXscale;
 
-execute_string("room_goto("+global.saveRoom+");");
+execute_string("room_goto(" + global.saveRoom + ");");

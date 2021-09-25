@@ -24,8 +24,8 @@ th = degtorad(spawnAngle);
 var i;
 for (i = 0; i < spawnEdges; i += 1)
 {
-    xx[i] = cos(th + 2*pi * i/spawnEdges);
-    yy[i] = sin(th + 2*pi * i/spawnEdges);
+    xx[i] = cos(th + 2 * pi * i/spawnEdges);
+    yy[i] = sin(th + 2 * pi * i/spawnEdges);
 }
 
 xx[spawnEdges] = xx[0];
@@ -34,16 +34,16 @@ yy[spawnEdges] = yy[0];
 var i,j;
 for (i = 0; i < spawnEdges; i += 1)
 {
-    ddx = xx[i+1]-xx[i];
-    ddy = yy[i+1]-yy[i];
+    ddx = xx[i + 1] - xx[i];
+    ddy = yy[i + 1] - yy[i];
 
     for(j = 0; j < spawnNum; j += 1)
     {
-        dx = xx[i]+ddx*j/spawnNum;
-        dy = yy[i]+ddy*j/spawnNum;
+        dx = xx[i] + ddx * j / spawnNum;
+        dy = yy[i] + ddy * j / spawnNum;
 
-        a = instance_create(spawnX+dx,spawnY+dy,spawnObj);
-        a.direction = point_direction(0,0,dx,dy);
-        a.speed = spawnSpeed*point_distance(0,0,dx,dy);
+        a = instance_create(spawnX + dx, spawnY + dy, spawnObj);
+        a.direction = point_direction(0, 0, dx, dy);
+        a.speed = spawnSpeed * point_distance(0, 0, dx, dy);
     }
 }

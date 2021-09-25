@@ -20,19 +20,19 @@ global.menuSound = "sndJump";     //sets what sound to use for navigating the ma
 global.adAlign = false;             //sets whether or not to enable A/D align
 global.timeWhenDead = true;        //sets whether or not to count the in-game timer when the player is dead
 global.timeWhenClear = false;    //sets whether or not to count the in-game timer when game is cleared
+global.saveWhenClear = false;    //sets whether or not to autosave when game is cleared
 global.edgeDeath = true;           //sets whether to kill the player when he leaves the boundaries of the room
 global.pauseDelayLength = 40;   //sets the delay in frames in which the player can pause/unpause the game (can be set to 0 to disable pause delay)
 global.delayBow = false;            //sets whether to delay the player bow's movement by a frame or not (most engines have the bow lagging behind the player by a frame, so set this to "true" to make the bow look like it does in other engines)
 global.directionalTapFix = false;    //sets whether to change the behavior of tapping left/right for less than 1 frame (by default the player does not move when this happens, enabling this always moves the player for 1 frame when left/right is tapped)
-global.playerAnimationFix = false;  //sets whether to fix the weird player animation inconsistencies when moving around
-global.alignShow = true;    //sets whether to show player's y align when pressing global.alignShowButton
+global.alignShow = true;    //sets whether to show player's y align when pressing global.alignShowButton("V" by default)
 global.bowAdvanced = true;    //sets whether to change bow color when player loses double jump
 global.skinEnabled = true;    //sets whether to allow changing player's skin
-global.platformMode = 2;    //sets platform behavior: 0 squish kill, 1 squish fall, 2 never squish(make player go through the ceiling)
+global.platformMode = 1;    //sets platform behavior: 0 squish kill, 1 squish fall, 2 never squish(make player go through the ceiling)
 
 global.secretItemTotal = 8;     //sets how many secret items for the game to save/load
 global.bossItemTotal = 8;       //sets how many boss items for the game to save/load
 global.autosaveSecretItems = false; //sets whether to save secret items immediately when you grab them or if you have to hit a save
 
-global.checkFocus = true;    //sets whether or not player can move when the game window is not in focus
+global.checkFocus = true;    //sets whether or not to "freeze" player when the game window is not in focus
 global.closingAnimation = true;    //sets whether to have a animation when game ends

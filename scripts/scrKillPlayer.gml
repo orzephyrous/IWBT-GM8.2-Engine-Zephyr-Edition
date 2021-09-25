@@ -9,11 +9,11 @@ if (instance_exists(objPlayer) && (!global.noDeath && !global.debugNoDeath))
 
         with (objPlayer)
         {
-            instance_create(x,y+8*global.grav*global.dotkid,objBloodEmitter);
+            instance_create(x, y + 8 * global.grav * global.dotkid, objBloodEmitter);
             instance_destroy();
         }
 
-        instance_create(0,0,objGameOver);
+        instance_create(0, 0, objGameOver);
 
         global.death += 1; //increment deaths
 

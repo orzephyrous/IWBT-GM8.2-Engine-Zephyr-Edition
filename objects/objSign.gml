@@ -15,10 +15,8 @@ applies_to=self
 */
 if (place_meeting(x,y,objPlayer))
 {
-    if (scrButtonCheckPressed(global.upButton))
+    if (scrButtonCheckPressed(global.upButton) || (scrButtonCheckPressed(global.downButton) && showText))
         showText = !showText;
-    if (scrButtonCheckPressed(global.downButton))
-        showText = false;
 }
 else
 {
@@ -41,5 +39,5 @@ if (showText)
     var yOffset;
     yOffset = string_height(signText);
 
-    draw_text(x+(sprite_width/2),y-yOffset,signText);
+    draw_text(x + (sprite_width / 2), y - yOffset, signText);
 }

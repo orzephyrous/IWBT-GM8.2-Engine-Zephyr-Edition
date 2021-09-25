@@ -8,19 +8,19 @@ if (global.gameStarted)
     roomCaption += " -";
     roomCaption += " Save " + string(global.savenum);
     roomCaption += " -";
-    if (global.difficulty==0)
+    if (global.difficulty == 0)
     {
         roomCaption += " Medium";
     }
-    else if (global.difficulty==1)
+    else if (global.difficulty == 1)
     {
         roomCaption += " Hard";
     }
-    else if (global.difficulty==2)
+    else if (global.difficulty == 2)
     {
         roomCaption += " Very Hard";
     }
-    else if (global.difficulty==3)
+    else if (global.difficulty == 3)
     {
         roomCaption += " Impossible";
     }

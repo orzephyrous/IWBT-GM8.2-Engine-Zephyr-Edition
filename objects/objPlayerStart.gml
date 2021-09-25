@@ -14,9 +14,9 @@ applies_to=self
 */
 if (!instance_exists(objPlayer))
 {
-    if (autosave && global.difficulty < 3 && (room != rInit && room != rMenu && room != rTitle && room != rOptions && room != rDifficultySelect && room != global.startRoom))
+    if (autosave && global.difficulty < 3 && (room != rInit && room != rMenu && room != rTitle && room != rOptions && room != rDifficultySelect))
     {
         global.autosave = true;  //autosave
     }
-    instance_create(x+17,y+23,objPlayer);
+    instance_create(x + 17, y + 23, objPlayer);
 }

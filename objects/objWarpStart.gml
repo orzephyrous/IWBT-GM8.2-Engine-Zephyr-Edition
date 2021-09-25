@@ -15,7 +15,7 @@ applies_to=self
 */
 if (dif == 4)   //load game
 {
-    if (file_exists("save"+string(global.savenum)))
+    if (file_exists("save" + string(global.savenum)))
         scrLoadGame(true);
     else
         scrKillPlayer();
@@ -27,8 +27,8 @@ else    //start new game
 
     global.difficulty = dif;
 
-    if(file_exists("save"+string(global.savenum)))
-        file_delete("save"+string(global.savenum));
+    if(file_exists("save" + string(global.savenum)))
+        file_delete("save" + string(global.savenum));
 
     with (objPlayer)
         instance_destroy();
@@ -47,4 +47,4 @@ draw_set_color(c_black)
 draw_set_font(fDefault12);
 draw_set_halign(fa_center);
 
-draw_text(x+16,y-16,difName);
+draw_text(x + 16, y - 16, difName);

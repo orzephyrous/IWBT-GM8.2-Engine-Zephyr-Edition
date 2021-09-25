@@ -9,16 +9,19 @@ applies_to=self
 trg = 0;
 
 image_speed = 0;
-#define Collision_objBullet
+#define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603
 applies_to=self
 */
-if (image_index == 0)   //sets trigger when shot
+if (place_meeting(x, y, objBullet) || (place_meeting(x, y, objPlayer) && scrButtonCheckPressed(global.shootButton)))
 {
-    image_index = 1;
-    global.trigger[trg] = true;
+    if (image_index == 0)   //sets trigger when shot
+    {
+        image_index = 1;
+        global.trigger[trg] = true;
+    }
 }
 #define Other_4
 /*"/*'/**//* YYD ACTION

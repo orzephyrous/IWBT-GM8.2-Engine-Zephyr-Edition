@@ -14,7 +14,7 @@ applies_to=self
 if (!global.dotkid)
 {
     scrToggleDotkid();
-    other.y -= 8*global.grav;
+    other.y -= 8 * global.grav;
     if (refreshJump) other.djump = 1;
     instance_destroy();
 }

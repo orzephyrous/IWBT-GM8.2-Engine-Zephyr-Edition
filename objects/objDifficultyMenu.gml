@@ -24,38 +24,38 @@ playerIndex = 0;
 //load save file values
 
 var i;
-for (i = 0; i < 3; i+=1)
+for (i = 0; i < 3; i += 1)
 {
-    if (file_exists("save"+string(i+1)))  //check if current save exists
+    if (file_exists("save" + string(i + 1)))  //check if current save exists
     {
         //load save data
         exists[i] = true;
 
         //load the save map
 
-        var saveMap;
+        var saveMap, b;
         saveMap = ds_map_create();
         b = buffer_create();
-        buffer_load(b,"save"+string(i+1));
-        if (global.password != "") buffer_rc4(b,global.password);
-        ds_map_read(saveMap,buffer_read_hex(b,buffer_get_size(b)));
+        buffer_load(b, "save" + string(i + 1));
+        if (global.password != "") buffer_rc4(b, global.password);
+        ds_map_read(saveMap, buffer_read_hex(b, buffer_get_size(b)));
         buffer_destroy(b);
 
         if (saveMap != -1)  //check if the save map loaded correctly
         {
-            death[i] = ds_map_find_value(saveMap,"death");
+            death[i] = ds_map_find_value(saveMap, "death");
 
-            time[i] = ds_map_find_value(saveMap,"time");
+            time[i] = ds_map_find_value(saveMap, "time");
 
-            difficulty[i] = ds_map_find_value(saveMap,"difficulty");
+            difficulty[i] = ds_map_find_value(saveMap, "difficulty");
 
             var j;
             for (j = 0; j < 8; j+=1)
             {
-                boss[j,i] = ds_map_find_value(saveMap,"saveBossItem["+string(j)+"]");
+                boss[j,i] = ds_map_find_value(saveMap,"saveBossItem[" + string(j) + "]");
             }
 
-            clear[i] = ds_map_find_value(saveMap,"saveGameClear");
+            clear[i] = ds_map_find_value(saveMap, "saveGameClear");
 
             ds_map_destroy(saveMap);
         }
@@ -65,8 +65,8 @@ for (i = 0; i < 3; i+=1)
             death[i] = 0;
             time[i] = 0;
             difficulty[i] = 0;
-            var j
-            for (j = 0; j < 8; j+=1)
+            var j;
+            for (j = 0; j < 8; j += 1)
             {
                 boss[j,i] = false;
             }
@@ -145,7 +145,7 @@ else
             {
                 if (global.menuMode == 0)   //use the difficulty select room to select difficulty
                 {
-                    global.savenum = select+1;
+                    global.savenum = select + 1;
                     room_goto(rDifficultySelect);
                 }
                 else    //use the menu to select difficulty
@@ -181,8 +181,8 @@ else
                 {
                     // delete save
                     sound_play(global.menuSound);
-                    if (file_exists("save"+string(select+1)))
-                        file_delete("save"+string(select+1));
+                    if (file_exists("save" + string(select + 1)))
+                        file_delete("save" + string(select + 1));
                     exists[select] = false;
                     death[select] = 0;
                     time[select] = 0;
@@ -221,16 +221,16 @@ else
             }
             else if (scrButtonCheckPressed(global.menuAcceptButton))
             {
-                global.savenum = select+1;
+                global.savenum = select + 1;
 
                 if (select2 == -1)  //load game
                 {
-                    if (file_exists("save"+string(global.savenum)))
+                    if (file_exists("save" + string(global.savenum)))
                         scrLoadGame(true);
                 }
                 else    //starts new game
                 {
-                    if (!file_exists("save"+string(global.savenum)))
+                    if (!file_exists("save" + string(global.savenum)))
                     {
                         global.gameStarted = true; //sets game in progress (enables saving, restarting, etc.)
                         global.autosave = true;
@@ -274,8 +274,8 @@ else
 
                     global.difficulty = select2;
 
-                    if (file_exists("save"+string(global.savenum)))
-                        file_delete("save"+string(global.savenum));
+                    if (file_exists("save" + string(global.savenum)))
+                        file_delete("save" + string(global.savenum));
 
                     room_goto(global.startRoom);
                 }
@@ -301,12 +301,12 @@ for(i = 0; i < 3; i += 1)
     draw_set_valign(fa_top)
     draw_set_font(fDefault30);
 
-    draw_text(x+i*xSeperation+2,y,str[i]);
+    draw_text(x + i * xSeperation + 2, y, str[i]);
 
     draw_set_font(fDefault12);
 
-    draw_text(x+i*xSeperation+10,y+70,"Deaths: "+string(death[i]));
-    draw_text(x+i*xSeperation+10,y+90,"Time: "+timeStr[i]);
+    draw_text(x + i * xSeperation + 10,y + 70,"Deaths: " + string(death[i]));
+    draw_text(x + i * xSeperation + 10,y + 90,"Time: " + timeStr[i]);
 
     draw_set_halign(fa_center);
 
@@ -314,17 +314,17 @@ for(i = 0; i < 3; i += 1)
     {
         if (!warnText)
         {
-            if(select2==-1) draw_text(x + i*xSeperation + 65, y+49,"< Load game >");
-            else if(select2==0) draw_text(x + i*xSeperation + 65, y+49,"< Medium >");
-            else if(select2==1) draw_text(x + i*xSeperation + 65, y+49,"< Hard >");
-            else if(select2==2) draw_text(x + i*xSeperation + 65, y+49,"< Very Hard >");
-            else if(select2==3) draw_text(x + i*xSeperation + 65, y+49,"< Impossible >");
+            if (select2 == -1) draw_text(x + i * xSeperation + 65, y + 49, "< Load game >");
+            else if (select2 == 0) draw_text(x + i * xSeperation + 65, y + 49, "< Medium >");
+            else if (select2 == 1) draw_text(x + i * xSeperation + 65, y + 49, "< Hard >");
+            else if (select2 == 2) draw_text(x + i * xSeperation + 65, y + 49, "< Very Hard >");
+            else if (select2 == 3) draw_text(x + i * xSeperation + 65, y + 49, "< Impossible >");
         }
         else
         {
-            draw_text(x+i*xSeperation+63,y-100,"Are you sure#you want to#overwrite this save?")
-            if(warnSelect) draw_text(x + i*xSeperation + 65, y+49,"< Yes >");
-            else draw_text(x + i*xSeperation + 65, y+49,"< No >");
+            draw_text(x + i * xSeperation + 63, y - 100, "Are you sure#you want to#overwrite this save?");
+            if (warnSelect) draw_text(x + i * xSeperation + 65, y + 49, "< Yes >");
+            else draw_text(x + i * xSeperation + 65, y + 49, "< No >");
         }
     }
 
@@ -334,49 +334,49 @@ for(i = 0; i < 3; i += 1)
         {
             if ((!delText) || (delSelect && i != select))
             {
-                if(difficulty[i]==0){draw_text(x+i*xSeperation+65,y+49,"Medium")}
-                else if(difficulty[i]==1){draw_text(x+i*xSeperation+65,y+49,"Hard")}
-                else if(difficulty[i]==2){draw_text(x+i*xSeperation+65,y+49,"Very Hard")}
-                else if(difficulty[i]==3){draw_text(x+i*xSeperation+65,y+49,"Impossible")}
+                if (difficulty[i] == 0) draw_text(x + i * xSeperation + 65, y + 49, "Medium");
+                else if (difficulty[i] == 1) draw_text(x + i * xSeperation + 65,y + 49, "Hard");
+                else if (difficulty[i] == 2) draw_text(x + i * xSeperation + 65,y + 49, "Very Hard");
+                else if (difficulty[i] == 3) draw_text(x + i * xSeperation + 65,y + 49, "Impossible");
             }
             else
             {
-                draw_text(x+i*xSeperation+63,y-100,"Are you sure#you want to#delete this save?")
-                if(delSelect) draw_text(x + i*xSeperation + 65, y+49,"< Yes >");
-                else draw_text(x + i*xSeperation + 65, y+49,"< No >");
+                draw_text(x + i * xSeperation + 63, y - 100, "Are you sure#you want to#delete this save?");
+                if(delSelect) draw_text(x + i * xSeperation + 65, y + 49, "< Yes >");
+                else draw_text(x + i * xSeperation + 65, y + 49, "< No >");
             }
         }
 
         draw_set_font(fDefault24);
 
-        if(clear[i]){draw_text(x+i*xSeperation+63,y+215,"Clear!!")}
+        if (clear[i]) draw_text(x + i * xSeperation + 63, y + 215, "Clear!!");
 
-        if(boss[0,i]){draw_sprite(sprBossItem,-1,x+i*xSeperation+0,y+128)}
-        if(boss[1,i]){draw_sprite(sprBossItem,-1,x+i*xSeperation+32,y+128)}
-        if(boss[2,i]){draw_sprite(sprBossItem,-1,x+i*xSeperation+64,y+128)}
-        if(boss[3,i]){draw_sprite(sprBossItem,-1,x+i*xSeperation+96,y+128)}
-        if(boss[4,i]){draw_sprite(sprBossItem,-1,x+i*xSeperation+0,y+160)}
-        if(boss[5,i]){draw_sprite(sprBossItem,-1,x+i*xSeperation+32,y+160)}
-        if(boss[6,i]){draw_sprite(sprBossItem,-1,x+i*xSeperation+64,y+160)}
-        if(boss[7,i]){draw_sprite(sprBossItem,-1,x+i*xSeperation+96,y+160)}
+        if (boss[0,i]) draw_sprite(sprBossItem, -1, x + i * xSeperation + 0, y + 128);
+        if (boss[1,i]) draw_sprite(sprBossItem, -1, x + i * xSeperation + 32, y + 128);
+        if (boss[2,i]) draw_sprite(sprBossItem, -1, x + i * xSeperation + 64, y + 128);
+        if (boss[3,i]) draw_sprite(sprBossItem, -1, x + i * xSeperation + 96, y + 128);
+        if (boss[4,i]) draw_sprite(sprBossItem, -1, x + i * xSeperation + 0, y + 160);
+        if (boss[5,i]) draw_sprite(sprBossItem, -1, x + i * xSeperation + 32, y + 160);
+        if (boss[6,i]) draw_sprite(sprBossItem, -1, x + i * xSeperation + 64, y + 160);
+        if (boss[7,i]) draw_sprite(sprBossItem, -1, x + i * xSeperation + 96, y + 160);
     }
     else
     {
         if ((!difSelect) || (difSelect && i != select))
         {
-            draw_text(x+i*xSeperation+65,y+49,"No Data");
+            draw_text(x + i * xSeperation + 65,y + 49, "No Data");
         }
     }
 
     if (i == select)
     {
-        draw_sprite(sprCherry,appleIndex,x+i*xSeperation+5,y+310);
-        draw_sprite(sprCherry,appleIndex,x+i*xSeperation+25,y+310);
-        draw_sprite(sprCherry,appleIndex,x+i*xSeperation+45,y+310);
-        draw_sprite(sprPlayerIdle,playerIndex,x+i*xSeperation+65,y+310);
-        draw_sprite(sprCherry,appleIndex,x+i*xSeperation+85,y+310);
-        draw_sprite(sprCherry,appleIndex,x+i*xSeperation+105,y+310);
-        draw_sprite(sprCherry,appleIndex,x+i*xSeperation+125,y+310);
+        draw_sprite(sprCherry, appleIndex, x + i * xSeperation + 5, y + 310);
+        draw_sprite(sprCherry, appleIndex, x + i * xSeperation + 25, y + 310);
+        draw_sprite(sprCherry, appleIndex, x + i * xSeperation + 45, y + 310);
+        draw_sprite(sprPlayerIdle, playerIndex, x + i * xSeperation + 65, y + 310);
+        draw_sprite(sprCherry, appleIndex, x + i * xSeperation + 85, y + 310);
+        draw_sprite(sprCherry, appleIndex, x + i * xSeperation + 105, y + 310);
+        draw_sprite(sprCherry, appleIndex, x + i * xSeperation + 125, y + 310);
     }
 }
 
