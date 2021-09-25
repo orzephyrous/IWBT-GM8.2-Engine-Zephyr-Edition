@@ -10,24 +10,25 @@ image_speed = 0;
 direction = irandom(35) * 10;
 speed = random(6);
 gravity = (0.1 + random(0.2)) * global.grav;
-#define Collision_objBlock
+_grav = 0;
+#define Step_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
 action_id=603
 applies_to=self
 */
-///snap to the block
-move_contact_solid(direction,speed);
+/// snap to solid
+vspeed += gravity;
 
-speed = 0;
-gravity = 0;
-#define Collision_objPlatform
-/*"/*'/**//* YYD ACTION
-lib_id=1
-action_id=603
-applies_to=self
-*/
-///do nothing
+if (!place_free(x + hspeed, y + vspeed))
+{
+    move_contact_solid(direction,speed);
+    _grav = gravity;
+    speed = 0;
+    gravity = 0;
+}
+
+vspeed -= gravity;
 #define Other_0
 /*"/*'/**//* YYD ACTION
 lib_id=1
